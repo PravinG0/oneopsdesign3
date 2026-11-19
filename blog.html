@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Blog | OneOps</title>
   <meta name="description" content="Discover strategies, frameworks, and practical solutions for governing AI, securing API keys, controlling spend, and scaling enterprise AI.">
-  <meta name="theme-color" content="#C33A2E">
+  <meta name="theme-color" content="#0B0809">
   <link rel="icon" type="image/png" href="img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
   <script src="js/main.js" defer></script>
+  <script src="js/fx.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,7 +43,7 @@
   }
   </script>
 </head>
-<body>
+<body class="page-blog">
 <div class="announce">
   <span class="tag">NEW</span><span class="hide-sm">Sophia AI now answers spend &amp; usage questions in plain English. </span><a href="index.html#beyond">See what's new <span aria-hidden="true">→</span></a>
 </div>
@@ -65,40 +67,43 @@
   </div>
 </header>
 
-<main>
-  <section class="page-hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
+<main id="main">
+  <section class="page-hero aurora-hero blog-hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="hero-grid" aria-hidden="true"></div>
     <div class="container">
-      <div class="section-head reveal" style="margin-bottom:0">
+      <div class="section-head reveal">
         <span class="eyebrow">Insights</span>
-        <h1 style="font-size:clamp(32px,4.4vw,52px);margin-top:14px;font-weight:700">The OneOps Blog</h1>
+        <h1 data-split>The OneOps <span class="serif">Blog</span></h1>
         <p>Discover strategies, frameworks, and practical solutions for governing AI, securing API keys, controlling spend, and scaling enterprise AI.</p>
       </div>
     </div>
   </section>
 
   <div class="container">
-    <div class="blog-tools reveal">
-      <label class="search">
+    <div class="blog-tools reveal blur">
+      <label class="search glass-search">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
         <span class="sr-only">Search articles</span>
         <input type="search" id="blog-search" placeholder="Search articles…" autocomplete="off">
+        <kbd aria-hidden="true">/</kbd>
       </label>
     </div>
 
-    <a class="featured-post reveal" href="blog/how-to-control-ai-spending-across-your-organization.html">
-      <div class="img"><img src="img/blog-1-spend-control.webp" alt="How to Control AI Spending Across Your Organization" width="1200" height="750"></div>
+    <a class="featured-post reveal scale" data-spotlight href="blog/how-to-control-ai-spending-across-your-organization.html">
+      <div class="img"><div class="px" data-parallax="-0.06" data-parallax-min="961"><img src="img/blog-1-spend-control.webp" alt="How to Control AI Spending Across Your Organization" width="1200" height="750"></div></div>
       <div class="body">
         <span class="cat">Featured · Cost Management</span>
         <h2>How to Control AI Spending Across Your Organization</h2>
         <p>Learn how to control AI spending across your organization with practical strategies for cost optimization, governance, usage monitoring, and smarter AI investments.</p>
         <div class="post-meta"><time datetime="2026-09-15">Sep 15, 2026</time><span class="sep"></span><span>7 min read</span></div>
+        <span class="read-more">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
       </div>
     </a>
 
     <div class="post-grid">
-      <a class="post-card reveal" href="blog/how-to-control-ai-spending-across-your-organization.html" data-title="how to control ai spending across your organization learn how to control ai spending across your organization with practical strategies for cost optimization, governance, usage monitoring, and smarter ai investments.">
+      <a class="post-card reveal" data-spotlight href="blog/how-to-control-ai-spending-across-your-organization.html" data-title="how to control ai spending across your organization learn how to control ai spending across your organization with practical strategies for cost optimization, governance, usage monitoring, and smarter ai investments.">
           <div class="img"><img src="img/blog-1-spend-control.webp" alt="How to Control AI Spending Across Your Organization" loading="lazy" width="800" height="500"></div>
           <div class="body">
             <span class="cat">Cost Management</span>
@@ -107,7 +112,7 @@
             <div class="post-meta"><time datetime="2026-09-15">Sep 15, 2026</time><span class="sep"></span><span>7 min read</span></div>
           </div>
         </a>
-      <a class="post-card reveal" href="blog/hidden-challenges-of-managing-multiple-ai-providers.html" data-title="hidden challenges of managing multiple ai providers discover the hidden challenges of managing multiple ai providers and learn how enterprise ai governance and ai api key management improve control.">
+      <a class="post-card reveal d1" data-spotlight href="blog/hidden-challenges-of-managing-multiple-ai-providers.html" data-title="hidden challenges of managing multiple ai providers discover the hidden challenges of managing multiple ai providers and learn how enterprise ai governance and ai api key management improve control.">
           <div class="img"><img src="img/blog-2-multi-provider.webp" alt="Hidden Challenges of Managing Multiple AI Providers" loading="lazy" width="800" height="500"></div>
           <div class="body">
             <span class="cat">Operations</span>
@@ -116,7 +121,7 @@
             <div class="post-meta"><time datetime="2026-08-08">Aug 8, 2026</time><span class="sep"></span><span>6 min read</span></div>
           </div>
         </a>
-      <a class="post-card reveal" href="blog/why-ai-governance-is-the-next-big-enterprise-priority.html" data-title="why ai governance is the next big enterprise priority ai governance is becoming a top enterprise priority. learn how organizations can manage ai risks, ensure compliance, and scale ai responsibly.">
+      <a class="post-card reveal d2" data-spotlight href="blog/why-ai-governance-is-the-next-big-enterprise-priority.html" data-title="why ai governance is the next big enterprise priority ai governance is becoming a top enterprise priority. learn how organizations can manage ai risks, ensure compliance, and scale ai responsibly.">
           <div class="img"><img src="img/blog-3-ai-governance.webp" alt="Why AI Governance Is the Next Big Enterprise Priority" loading="lazy" width="800" height="500"></div>
           <div class="body">
             <span class="cat">Governance</span>
@@ -129,15 +134,15 @@
     <p class="no-results">No articles match your search.</p>
   </div>
 
-  <div style="height:96px"></div>
+  <div class="blog-spacer" aria-hidden="true"></div>
   <section class="cta">
     <div class="container">
-      <div class="cta-box reveal">
+      <div class="cta-box reveal scale">
         <svg class="cta-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 L90 27 L90 60 L50 60 Z" fill="#D5857A"/><path d="M50 4 L10 27 L10 60 L50 60 Z" fill="#C33A2E"/><path d="M10 60 L50 60 L90 60 L90 73 L50 96 L10 73 Z" fill="#7A5C6E"/><path d="M10 60 L50 82 L90 60" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="1.5"/></svg>
-        <h2>Ready to get started?</h2>
+        <h2 data-split>Ready to get <span class="serif">started?</span></h2>
         <p>See how OneOps helps enterprises govern AI, manage API keys, and scale AI tools with confidence.</p>
         <div class="hero-ctas">
-          <button class="btn btn-primary" data-open-demo>Book a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+          <button class="btn btn-primary" data-open-demo data-magnetic>Book a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
           <button class="btn btn-outline-light" data-open-demo>Start free trial — no card needed</button>
         </div>
       </div>
@@ -220,5 +225,14 @@
     </div>
   </div>
 </div>
+<script>
+/* Blog index: press "/" to focus search */
+document.addEventListener('keydown', function (e) {
+  var t = e.target, s = document.getElementById('blog-search');
+  if (e.key !== '/' || !s || e.ctrlKey || e.metaKey || e.altKey) return;
+  if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+  e.preventDefault(); s.focus();
+});
+</script>
 </body>
 </html>

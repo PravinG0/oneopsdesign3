@@ -5,15 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Cost Management | OneOps</title>
 <meta name="description" content="OneOps simplifies AI cost management with one dashboard to track spend across providers, catch budget overruns, and uncover hidden waste across your AI stack.">
-<meta name="theme-color" content="#C33A2E">
+<meta name="theme-color" content="#0B0809">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
 <script src="js/main.js" defer></script>
+  <script src="js/fx.js" defer></script>
 </head>
-<body>
+<body class="page-features">
 
 <div class="announce">
   <span class="tag">NEW</span><span class="hide-sm">Sophia AI now answers spend &amp; usage questions in plain English. </span><a href="index.html#beyond">See what's new <span aria-hidden="true">→</span></a>
@@ -41,16 +43,17 @@
 <main id="main">
 
   <!-- ================= HERO ================= -->
-  <section class="page-hero">
+  <section class="page-hero aurora-hero">
     <div class="hero-bg" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="container split-hero">
       <div class="reveal">
         <span class="pill"><span class="dot">NEW</span>AI Cost Management</span>
-        <h1>Total control over <span class="grad-text">total AI spend.</span></h1>
+        <h1 data-split>Total control over <span class="serif">total</span> <span class="grad-text">AI spend.</span></h1>
         <p class="lede">OneOps simplifies AI Cost Management with one dashboard to track spend across providers, catch budget overruns, and uncover hidden waste across your AI stack.</p>
         <div class="hero-ctas">
-          <button class="btn btn-primary" data-open-demo>Book a Demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+          <button class="btn btn-primary" data-open-demo data-magnetic>Book a Demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
           <a class="btn btn-ghost" href="#capabilities">See How it Works</a>
         </div>
         <div class="hero-note" style="justify-content:flex-start">
@@ -60,7 +63,9 @@
         </div>
       </div>
 
-      <div class="spend-card reveal d2" role="figure" aria-label="AI spend analytics preview: $14,850 this month across OpenAI, Anthropic and Google Vertex">
+      <div class="spend-wrap reveal scale d2">
+      <div class="spend-glow" aria-hidden="true"></div>
+      <div class="spend-card" data-tilt data-spotlight role="figure" aria-label="AI spend analytics preview: $14,850 this month across OpenAI, Anthropic and Google Vertex">
         <div class="floating" style="bottom:-26px; left:-30px">
           <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>
           <div><b>Marketing · Claude budget</b><span>82% used · 9 days left</span></div>
@@ -89,6 +94,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
           <span><b>Q3 Budget Warning:</b> 95% consumed. Overrun imminent across 2 teams.</span>
         </div>
+      </div>
       </div>
     </div>
   </section>
@@ -125,23 +131,23 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">The problem</span>
-        <h2 id="problem-title">Nobody's watching the AI bill until it's too big to ignore.</h2>
+        <h2 id="problem-title" data-split>Nobody's watching the AI bill until it's <span class="serif">too big</span> to ignore.</h2>
         <p>Different teams use different AI tools and AI providers, and each one has its own bill. No one adds it all up — until the finance team gets a surprise invoice and has to figure out where it came from.</p>
       </div>
       <div class="problem-grid">
-        <article class="problem-card reveal">
+        <article class="problem-card reveal scale" data-spotlight>
           <span class="num">01</span>
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <h3>No one owns the total</h3>
           <p>Every team pays for its own AI tools separately. There's no single number anyone can point to.</p>
         </article>
-        <article class="problem-card reveal d1">
+        <article class="problem-card reveal scale d1" data-spotlight>
           <span class="num">02</span>
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
           <h3>Problems show up too late</h3>
           <p>Most teams only find out they've overspent when the bill arrives, not before.</p>
         </article>
-        <article class="problem-card reveal d2">
+        <article class="problem-card reveal scale d2" data-spotlight>
           <span class="num">03</span>
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg></div>
           <h3>AI usage is hard to track</h3>
@@ -156,11 +162,11 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">What you can do with AI Cost Management</span>
-        <h2 id="cap-title">Turn AI spend into an everyday practice, not a monthly surprise.</h2>
+        <h2 id="cap-title" data-split>Turn AI spend into an everyday practice, not a <span class="serif">monthly surprise.</span></h2>
         <p>Four capabilities, one platform — from first dashboard view to enforced budget.</p>
       </div>
 
-      <div class="tabs-wrap" data-tabs>
+      <div class="tabs-wrap reveal blur" data-tabs>
         <div class="tab-list" role="tablist" aria-label="AI Cost Management capabilities">
           <button class="tab-btn active" data-tab="1" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true">
             <span class="ix">01</span>
@@ -182,7 +188,7 @@
 
         <div class="tab-panels">
           <!-- 01 -->
-          <div class="tab-panel active" data-tab="1" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+          <div class="tab-panel active" data-spotlight data-tab="1" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
             <h3>Track AI spending with smarter AI Spend Management</h3>
             <p>OneOps gives you a centralized view of spending across providers, models, teams, and applications, making it easier to understand where your AI budget is going.</p>
             <div class="panel">
@@ -204,7 +210,7 @@
           </div>
 
           <!-- 02 -->
-          <div class="tab-panel" data-tab="2" role="tabpanel" id="panel-2" aria-labelledby="tab-2">
+          <div class="tab-panel" data-spotlight data-tab="2" role="tabpanel" id="panel-2" aria-labelledby="tab-2">
             <h3>Gain Better Control with AI Usage Analytics</h3>
             <p>A dashboard tells you the number went up. OneOps tells you why — broken down to the dimension that actually explains it and helps to control it.</p>
             <div class="panel" data-dims>
@@ -230,7 +236,7 @@
           </div>
 
           <!-- 03 -->
-          <div class="tab-panel" data-tab="3" role="tabpanel" id="panel-3" aria-labelledby="tab-3">
+          <div class="tab-panel" data-spotlight data-tab="3" role="tabpanel" id="panel-3" aria-labelledby="tab-3">
             <h3>AI Budget Management</h3>
             <p>Budget overruns are rarely dramatic — they're a slow drift nobody notices until the invoice arrives. Set thresholds by team, department, project, or provider.</p>
             <div class="budget-alert">
@@ -251,7 +257,7 @@
           </div>
 
           <!-- 04 -->
-          <div class="tab-panel" data-tab="4" role="tabpanel" id="panel-4" aria-labelledby="tab-4">
+          <div class="tab-panel" data-spotlight data-tab="4" role="tabpanel" id="panel-4" aria-labelledby="tab-4">
             <h3>Drive Smarter AI Cost Optimization</h3>
             <p>The better move is to spend what you're already spending more precisely. OneOps surfaces where to start.</p>
             <div class="levers">
@@ -279,22 +285,22 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Setup in minutes</span>
-        <h2 id="steps-title">Connect. Assign. Control.</h2>
+        <h2 id="steps-title" data-split>Connect. Assign. <span class="serif">Control.</span></h2>
         <p>Three steps to full visibility over every AI tool in your company.</p>
       </div>
       <div class="steps">
-        <div class="step reveal">
+        <div class="step reveal left" data-spotlight>
           <span class="n"><b>1</b>STEP 01</span>
           <h3>Connect providers</h3>
           <p>Paste in your API keys for any AI provider – Claude, OpenAI, Gemini, Bedrock, Mistral, Groq, and more. OneOps vaults them with AES-256 encryption immediately.</p>
           <div class="provs" aria-hidden="true"><span class="p-anth">A</span><span class="p-oai">AI</span><span class="p-goog">G</span><span class="p-aws">B</span><span class="p-mis">M</span><span class="p-groq">Gq</span></div>
         </div>
-        <div class="step reveal d1">
+        <div class="step reveal d1" data-spotlight>
           <span class="n"><b>2</b>STEP 02</span>
           <h3>Set budgets &amp; owners</h3>
           <p>Set up your teams and choose which AI models each one can access. Define monthly budgets per team or per person. Sync with Okta or Azure AD via SCIM.</p>
         </div>
-        <div class="step reveal d2">
+        <div class="step reveal right d2" data-spotlight>
           <span class="n"><b>3</b>STEP 03</span>
           <h3>Get alerts before the invoice</h3>
           <p>Watch spend in real time. Get alerts before limits are hit. Pull reports for finance. One dashboard for all of it.</p>
@@ -306,7 +312,7 @@
   <!-- ================= TESTIMONIAL ================= -->
   <section class="section tight" style="padding-top:0" aria-label="Customer testimonial">
     <div class="container">
-      <figure class="quote highlight reveal" style="max-width:760px; margin:0 auto">
+      <figure class="quote highlight reveal blur" data-spotlight style="max-width:760px; margin:0 auto">
         <div class="stars" aria-label="5 out of 5 stars">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
@@ -314,7 +320,7 @@
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
         </div>
-        <blockquote style="font-size:21px">“Finance asked me which departments were driving our AI costs. I pulled a full breakdown by team, model, and person in 2 minutes. That used to be a week-long spreadsheet exercise.”</blockquote>
+        <blockquote class="quote-xl">“Finance asked me which departments were driving our AI costs. I pulled a full breakdown by team, model, and person in 2 minutes. That used to be a week-long spreadsheet exercise.”</blockquote>
         <figcaption class="by">
           <span class="av" style="background:rgba(255,255,255,.18)" aria-hidden="true">TL</span>
           <div><b>Tom L.</b><span>VP Operations, 500-person enterprise</span></div>
@@ -326,12 +332,12 @@
   <!-- ================= FINAL CTA ================= -->
   <section class="cta">
     <div class="container">
-      <div class="cta-box reveal">
+      <div class="cta-box reveal scale">
         <svg class="cta-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 L90 27 L90 60 L50 60 Z" fill="#D5857A"/><path d="M50 4 L10 27 L10 60 L50 60 Z" fill="#C33A2E"/><path d="M10 60 L50 60 L90 60 L90 73 L50 96 L10 73 Z" fill="#7A5C6E"/><path d="M10 60 L50 82 L90 60" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="1.5"/></svg>
-        <h2>Stop finding out about AI spend from the invoice.</h2>
+        <h2 data-split>Stop finding out about AI spend from <span class="serif">the invoice.</span></h2>
         <p>Connect your accounts and see your real spend breakdown easily and get visibility before costs get out of hand.</p>
         <div class="hero-ctas">
-          <button class="btn btn-primary" data-open-demo>Book a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+          <button class="btn btn-primary" data-open-demo data-magnetic>Book a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
           <button class="btn btn-outline-light" data-open-demo>Start free trial — no card needed</button>
         </div>
       </div>

@@ -1,0 +1,253 @@
+/* =========================================================
+   OneOps — Homepage scenes (index.html only)
+   Layout + scroll-scene styling for the homepage sections. Uses the design tokens defined in
+   css/style.css :root only. Base component styling (cards, buttons, mockups, reveal, spotlight,
+   tilt, split words, marquee items) lives in style.css — this file refines inside home sections.
+   JS hooks come from js/fx.js (is-live / is-story / is-static / is-offscreen / lit / on).
+   ========================================================= */
+
+@property --ang { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+
+/* Pause decorative CSS animations while their section is offscreen (fx.js [data-pause-offscreen]) */
+[data-pause-offscreen].is-offscreen,
+[data-pause-offscreen].is-offscreen * { animation-play-state: paused !important; }
+
+/* Split words: give italic overhang + descenders room inside the overflow mask */
+.home [data-split] .w { padding: 0 .06em .1em 0; margin: 0 -.06em -.1em 0; }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.home .hero { position: relative; isolation: isolate; overflow: hidden; overflow: clip; padding: clamp(48px, 9vh, 112px) 0 clamp(72px, 12vh, 140px); }
+.hero-aurora { position: absolute; inset: -20% -10% 0; z-index: -2; pointer-events: none;
+  -webkit-mask-image: linear-gradient(#000 55%, transparent 95%); mask-image: linear-gradient(#000 55%, transparent 95%); }
+.hero-aurora i, .cta-aurora i { position: absolute; display: block; border-radius: 50%; will-change: transform; mix-blend-mode: screen; }
+.hero-aurora .b1 { width: 62vw; height: 62vw; max-width: 980px; max-height: 980px; left: -14%; top: -6%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--red) 46%, transparent), transparent); animation: aur-a 24s var(--ease) infinite alternate; }
+.hero-aurora .b2 { width: 54vw; height: 54vw; max-width: 860px; max-height: 860px; right: -12%; top: -4%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--salmon) 34%, transparent), transparent); animation: aur-b 28s var(--ease) infinite alternate; }
+.hero-aurora .b3 { width: 58vw; height: 40vw; max-width: 900px; max-height: 620px; left: 22%; top: 34%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--mauve) 40%, transparent), transparent); animation: aur-c 32s var(--ease) infinite alternate; }
+.hero-aurora .b4 { width: 36vw; height: 36vw; max-width: 560px; max-height: 560px; left: 40%; top: -10%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--red-700) 60%, transparent), transparent); animation: aur-b 20s var(--ease) infinite alternate-reverse; }
+@keyframes aur-a { to { transform: translate3d(12vw, 8vh, 0) scale(1.15); } }
+@keyframes aur-b { to { transform: translate3d(-10vw, 12vh, 0) scale(.9); } }
+@keyframes aur-c { to { transform: translate3d(-8vw, -6vh, 0) scale(1.2); } }
+
+.home .hero-grid { position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px; background-position: center top;
+  -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 30%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 55% at 50% 30%, #000 20%, transparent 75%); opacity: .7; }
+
+.home .hero-copy { position: relative; text-align: center; max-width: 1120px; margin: 0 auto; }
+.home .hero h1 { font-size: clamp(44px, 8.4vw, 120px); line-height: .98; letter-spacing: -.048em; font-weight: 800; }
+.home .hero h1 .serif { font-weight: 400; letter-spacing: -.02em; padding-right: .06em; }
+.home .hero .lede { max-width: 700px; margin-left: auto; margin-right: auto; }
+
+/* Stage: dashboard in 3D perspective (fx.js sets inline transform + --hp) */
+.hero-stage { position: relative; max-width: 1140px; margin: clamp(48px, 8vh, 88px) auto 0; }
+.hero-tilt { position: relative; z-index: 2; transform-origin: 50% 0; will-change: transform; }
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .js .hero-tilt { transform: perspective(1800px) translate3d(0, -24px, 0) rotateX(26deg) scale(.84); }
+}
+.hero-stage-glow { position: absolute; z-index: 0; left: 6%; right: 6%; top: 8%; bottom: -14%; pointer-events: none;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--red) 34%, transparent), transparent 80%);
+  opacity: calc(.45 + var(--hp, 1) * .55); }
+.hero-chips { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.hero-chip { position: absolute; will-change: transform; }
+.hero-chip.c1 { top: 4%; left: -5%; }
+.hero-chip.c2 { top: 26%; right: -6%; }
+.hero-chip.c3 { bottom: 22%; left: -7%; }
+.hero-chip.c4 { bottom: -3%; right: 6%; }
+.hc-in { display: flex; align-items: center; gap: 12px; padding: 11px 16px 11px 11px; border-radius: var(--r);
+  background: color-mix(in srgb, var(--bg-3) 72%, transparent); border: 1px solid var(--line-2);
+  -webkit-backdrop-filter: blur(14px) saturate(140%); backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: 0 20px 50px -18px rgba(0, 0, 0, .7), inset 0 1px 0 var(--line);
+  animation: chip-bob 6s ease-in-out infinite alternate; white-space: nowrap; }
+.hero-chip.c2 .hc-in { animation-delay: -1.5s; } .hero-chip.c3 .hc-in { animation-delay: -3s; } .hero-chip.c4 .hc-in { animation-delay: -4.5s; }
+.hc-in b { display: block; font-size: 13.5px; font-weight: 600; color: var(--ink); line-height: 1.25; }
+.hc-in small { display: block; font-size: 12px; color: var(--muted); }
+.hc-in .fi { flex: none; width: 34px; height: 34px; border-radius: var(--r-sm); display: grid; place-items: center; background: var(--surface-2); color: var(--ink-2); }
+.hc-in .fi svg { width: 17px; height: 17px; }
+.hc-in .fi.warn { background: var(--warn-bg); color: var(--warn); }
+.hc-in .fi.red { background: var(--blush); color: var(--salmon); }
+.hc-in .fi.ok { background: var(--ok-bg); color: var(--ok); }
+@keyframes chip-bob { to { transform: translate3d(0, -10px, 0); } }
+@media (max-width: 899px) { .hero-chips { display: none; } }
+
+/* =========================================================
+   PROVIDER MARQUEE — two rows, opposite directions
+   ========================================================= */
+.home .logos { position: relative; }
+.home .marquee { -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); }
+.home .marquee-track { gap: 0; animation: home-marquee 46s linear infinite; }
+.home .marquee-track > * { margin-right: 56px; }
+.home .marquee-rev { margin-top: 18px; }
+.home .marquee-rev .marquee-track { animation-duration: 64s; animation-direction: reverse; }
+.home .marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-word { display: inline-flex; align-items: center; gap: 56px; white-space: nowrap; font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(24px, 3.2vw, 44px); letter-spacing: -.03em; color: var(--muted-2); }
+.marquee-word::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 14px var(--red); }
+.marquee-word.serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -.01em; color: var(--ink-2); }
+@keyframes home-marquee { to { transform: translate3d(-50%, 0, 0); } }
+
+/* =========================================================
+   CINEMATIC SEQUENCE (fx.js [data-seq])
+   ========================================================= */
+.seq { position: relative; background: var(--bg); }
+.seq-sticky { position: relative; min-height: 100vh; min-height: 100svh; overflow: hidden; display: grid; }
+.seq-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; background: var(--bg-2); }
+.seq-shade { position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(to bottom, var(--bg) 0%, transparent 20%, transparent 72%, var(--bg) 100%),
+    radial-gradient(120% 85% at 50% 50%, transparent 25%, color-mix(in srgb, var(--bg) 85%, transparent) 100%),
+    linear-gradient(color-mix(in srgb, var(--bg) 56%, transparent), color-mix(in srgb, var(--bg) 56%, transparent)); }
+.seq-copy { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-top: 12vh; padding-bottom: 14vh; }
+.seq-title { display: grid; justify-items: center; margin-top: 18px; font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(40px, 6.4vw, 96px); line-height: 1; letter-spacing: -.05em; color: var(--ink);
+  text-shadow: 0 4px 60px rgba(0, 0, 0, .55); }
+.seq-line { display: block; }
+.seq-final .serif { font-weight: 400; letter-spacing: -.02em; padding-right: .06em; }
+.seq-hud { display: none; }
+
+/* Live (pinned & scrubbed) */
+@media (prefers-reduced-motion: no-preference) {
+  .js .seq { height: 340vh; }
+  .js .seq-sticky { position: sticky; top: 0; height: 100vh; height: 100svh; }
+}
+.seq.is-live .seq-title { font-size: clamp(52px, 11vw, 168px); line-height: .95; }
+.seq.is-live .seq-line { grid-area: 1 / 1; opacity: 0; will-change: opacity, transform; white-space: nowrap; }
+.seq.is-live .seq-line:first-child { opacity: 1; }
+.seq.is-live .seq-hud { display: flex; position: absolute; left: 0; right: 0; bottom: clamp(20px, 5vh, 44px); z-index: 2; flex-direction: column; gap: 14px; }
+.seq-ticks { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-2); }
+.seq-ticks span { transition: color .4s var(--ease); }
+.seq-ticks span.on { color: var(--ink); }
+.seq-progress { height: 2px; border-radius: 2px; background: var(--line-2); overflow: hidden; }
+.seq-progress i { display: block; height: 100%; background: var(--grad-brand); transform: scaleX(0); transform-origin: 0 50%; }
+.seq.is-static .seq-sticky { min-height: 90vh; }
+@media (max-width: 599px) {
+  .seq.is-live .seq-title { font-size: clamp(44px, 14vw, 72px); }
+  .seq.is-live .seq-line { white-space: normal; }
+  .seq-ticks span { font-size: 9.5px; letter-spacing: .08em; }
+}
+
+/* =========================================================
+   STATS — giant Thunder numerals
+   ========================================================= */
+.home .stats-band { position: relative; }
+.home .stats-grid .n.mega { font-family: var(--font-mega); font-weight: 700; font-size: clamp(72px, 9.6vw, 148px); line-height: .85; letter-spacing: 0;
+  text-transform: uppercase; display: flex; align-items: flex-start;
+  background: linear-gradient(180deg, var(--ink) 35%, color-mix(in srgb, var(--ink) 40%, transparent));
+  -webkit-background-clip: text; background-clip: text; color: transparent; font-variant-numeric: tabular-nums; }
+.home .stats-grid .n.mega em { font-style: normal; font-size: .52em; margin: .08em 0 0 .04em;
+  background: var(--grad-brand); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.home .stats-grid .l { margin-top: 10px; }
+
+/* =========================================================
+   PROBLEM — scroll-linked text highlight
+   ========================================================= */
+.home #problem { overflow: hidden; }
+.problem-aurora { position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(55% 45% at 85% 0%, color-mix(in srgb, var(--red) 20%, transparent), transparent 70%),
+              radial-gradient(45% 40% at 0% 100%, color-mix(in srgb, var(--mauve) 16%, transparent), transparent 70%); }
+.home #problem > .container { position: relative; }
+.home .problem-head { max-width: 1120px; margin: 0 0 clamp(48px, 7vw, 88px); text-align: left; }
+.home .problem-head .problem-statement { font-size: clamp(34px, 5.6vw, 84px); line-height: 1.04; letter-spacing: -.045em; font-weight: 700; margin-top: 22px; }
+.problem-statement.is-live .hl-w { color: color-mix(in srgb, var(--ink) 16%, transparent); transition: color .45s var(--ease); }
+.problem-statement.is-live .hl-w.on { color: var(--ink); }
+
+/* =========================================================
+   FEATURES — sticky storytelling (fx.js [data-story], desktop only)
+   ========================================================= */
+.story-stage { display: none; }
+@media (min-width: 1024px) {
+  .story.is-story { display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); gap: clamp(40px, 5vw, 88px); align-items: start; }
+  .story.is-story .story-steps { padding: 6vh 0 10vh; }
+  .story.is-story .feature { display: flex; align-items: center; min-height: 88vh; padding: 0; border: 0; grid-template-columns: none; gap: 0; }
+  .story.is-story .feature + .feature { border-top: 0; }
+  .story.is-story .feature .feature-copy { opacity: .22; transition: opacity .6s var(--ease); }
+  .story.is-story .feature.is-active .feature-copy { opacity: 1; }
+  .story.is-story .feature .feature-copy h3 { font-size: clamp(30px, 3.2vw, 46px); }
+
+  .story.is-story .story-stage { display: block; position: sticky; top: 0; height: 100vh; }
+  .story-slots { position: absolute; top: 15vh; bottom: 13vh; left: 48px; right: 0; display: grid; align-items: center; }
+  .story-slot { grid-area: 1 / 1; min-width: 0; opacity: 0; visibility: hidden; transform: translate3d(0, 40px, 0) scale(.94);
+    transition: opacity .55s var(--ease), transform .9s var(--ease-out-expo), visibility 0s linear .55s; }
+  .story-slot.is-past { transform: translate3d(0, -40px, 0) scale(.94); }
+  .story-slot.is-active { opacity: 1; visibility: visible; transform: none; transition-delay: .08s, .08s, 0s; }
+  .story-slot .feature-visual { width: 100%; }
+  .story-slot .team-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+
+  .story-rail { position: absolute; left: 0; top: 15vh; bottom: 13vh; width: 2px; border-radius: 2px; background: var(--line-2); overflow: hidden; }
+  .story-rail i { display: block; height: 100%; background: linear-gradient(180deg, var(--red), var(--salmon), var(--mauve)); transform: scaleY(0); transform-origin: 50% 0; }
+  .story-hud { position: absolute; left: 48px; right: 0; bottom: 4vh; display: flex; align-items: flex-end; gap: 18px; }
+  .story-count { display: flex; align-items: flex-end; gap: 8px; font-family: var(--font-mono); font-size: 13px; color: var(--muted-2); }
+  .story-count b { font-family: var(--font-mega); font-weight: 700; font-size: 64px; line-height: .8; color: var(--ink);
+    background: var(--grad-brand); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .story-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--salmon); padding-bottom: 2px; }
+}
+@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+  .story-slot, .story-slot.is-past { transform: none; transition: none; }
+}
+
+/* =========================================================
+   HOW IT WORKS — self-drawing connector path
+   ========================================================= */
+.steps-wrap { position: relative; }
+.steps-path { display: block; width: 100%; height: auto; aspect-ratio: 15 / 1; margin: -8px 0 18px; overflow: visible; pointer-events: none; }
+.steps-path path { fill: none; stroke-width: 2; stroke-linecap: round; }
+.steps-path-bg { stroke: var(--line-2); stroke-dasharray: 3 9; }
+.steps-path-fg { stroke: url(#steps-grad); stroke-width: 2.5; stroke-dasharray: 1 1; stroke-dashoffset: 0; filter: drop-shadow(0 0 6px color-mix(in srgb, var(--red) 70%, transparent)); }
+.steps-wrap.is-live .steps-path-fg { stroke-dashoffset: 1; }
+.steps-node { fill: var(--bg-3); stroke: var(--line-2); stroke-width: 2; transition: fill .5s var(--ease), stroke .5s var(--ease); }
+.steps-node.lit { fill: var(--red); stroke: var(--salmon); filter: drop-shadow(0 0 8px var(--red)); }
+.home .steps-wrap .steps::before { display: none; }
+.home .steps-wrap .step .n b { transition: box-shadow .5s var(--ease), background .5s var(--ease), color .5s var(--ease); }
+.home .steps-wrap.is-live .step:not(.lit) .n b { background: var(--surface-2); color: var(--muted); box-shadow: none; }
+.home .steps-wrap .step.lit .n b { box-shadow: 0 0 0 6px var(--blush-2), 0 0 28px color-mix(in srgb, var(--red) 60%, transparent); }
+@media (max-width: 899px) { .steps-path { display: none; } }
+
+/* =========================================================
+   TESTIMONIALS
+   ========================================================= */
+.home .quote blockquote { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(20px, 1.75vw, 24px); line-height: 1.35; letter-spacing: -.005em; color: var(--ink); }
+
+/* =========================================================
+   PRICING — popular plan glowing border
+   ========================================================= */
+.home .plan.popular { position: relative; isolation: isolate; }
+.plan-glow { position: absolute; inset: -1px; z-index: 2; border-radius: inherit; padding: 1.5px; pointer-events: none;
+  background: conic-gradient(from var(--ang), var(--red), var(--salmon), var(--mauve), transparent 60%, var(--red));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  animation: plan-spin 6s linear infinite; }
+@keyframes plan-spin { to { --ang: 360deg; } }
+
+/* =========================================================
+   FINAL CTA — aurora + giant type
+   ========================================================= */
+.home .cta-box { position: relative; isolation: isolate; overflow: hidden; text-align: center; padding: clamp(72px, 10vw, 130px) clamp(20px, 5vw, 80px) clamp(110px, 16vw, 230px); }
+.cta-aurora { position: absolute; inset: 0; z-index: -2; pointer-events: none; }
+.cta-aurora .b1 { width: 70%; aspect-ratio: 1; left: -20%; bottom: -60%; background: radial-gradient(closest-side, color-mix(in srgb, var(--red) 55%, transparent), transparent); animation: aur-a 22s var(--ease) infinite alternate; }
+.cta-aurora .b2 { width: 60%; aspect-ratio: 1; right: -18%; top: -50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--mauve) 50%, transparent), transparent); animation: aur-b 26s var(--ease) infinite alternate; }
+.cta-aurora .b3 { width: 50%; aspect-ratio: 1; left: 25%; top: 10%; background: radial-gradient(closest-side, color-mix(in srgb, var(--salmon) 26%, transparent), transparent); animation: aur-c 30s var(--ease) infinite alternate; }
+.cta-grid { position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000, transparent 75%); mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000, transparent 75%); }
+.cta-mega { position: absolute; left: 0; right: 0; bottom: -.14em; z-index: -1; pointer-events: none; user-select: none; white-space: nowrap; text-align: center;
+  font-family: var(--font-mega); font-weight: 700; text-transform: uppercase; line-height: .85; font-size: min(17vw, 250px); letter-spacing: .01em;
+  color: transparent; -webkit-text-stroke: 1px color-mix(in srgb, var(--salmon) 30%, transparent);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--salmon) 14%, transparent), transparent 70%); -webkit-background-clip: text; background-clip: text; }
+.home .cta-box h2 { font-size: clamp(40px, 6.6vw, 100px); line-height: .98; letter-spacing: -.048em; max-width: 1000px; margin: 0 auto; }
+.home .cta-box h2 .serif { font-weight: 400; letter-spacing: -.02em; color: var(--salmon); }
+.home .cta-box > p { max-width: 640px; margin-left: auto; margin-right: auto; }
+.home #how h2 .serif { font-weight: 400; color: var(--salmon); }
+
+/* =========================================================
+   Reduced motion
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .hero-aurora i, .cta-aurora i, .hc-in, .plan-glow, .home .marquee-track { animation: none !important; }
+  .home .marquee { overflow-x: auto; }
+}

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OneOps | Enterprise AI Governance Platform</title>
 <meta name="description" content="OneOps is an AI governance platform designed to help organizations manage LLMs and AI tools responsibly, ensuring visibility, governance, and operational efficiency.">
-<meta name="theme-color" content="#C33A2E">
+<meta name="theme-color" content="#0B0809">
 <link rel="canonical" href="https://oneops.pro/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="OneOps">
@@ -19,11 +19,15 @@
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/Thunder-BoldLC.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/home.css">
+<script>document.documentElement.classList.add('js');</script>
 <script src="js/main.js" defer></script>
+<script src="js/fx.js" defer></script>
 </head>
-<body>
+<body class="home">
 
 <div class="announce">
   <span class="tag">NEW</span><span class="hide-sm">Sophia AI now answers spend &amp; usage questions in plain English. </span><a href="index.html#beyond">See what's new <span aria-hidden="true">→</span></a>
@@ -51,17 +55,18 @@
 <main id="main">
 
 <!-- ================= HERO ================= -->
-<section class="hero" aria-labelledby="hero-title">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
+<section class="hero" aria-labelledby="hero-title" data-pause-offscreen>
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-aurora" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b4"></i></div>
+  <div class="hero-grid" aria-hidden="true"></div>
   <div class="container">
     <div class="hero-copy">
       <span class="pill"><span class="dot">Enterprise AI Operations</span>The control plane for enterprise AI</span>
-      <h1 id="hero-title">Every AI key. Every team. <span class="grad-text">One platform.</span></h1>
+      <h1 id="hero-title" data-split>Every AI key. Every team.<br> <span class="grad-text serif">One platform.</span></h1>
       <p class="lede">OneOps is the enterprise AI Governance platform which serves as the control plane for enterprise AI. Manage keys, track spend by team and person, enforce budgets, and govern access across every AI model your company uses.</p>
       <div class="hero-ctas">
-        <button class="btn btn-primary" data-open-demo>Book a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
-        <a class="btn btn-ghost" href="#features">See how it works</a>
+        <button class="btn btn-primary" data-open-demo data-magnetic>Book a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+        <a class="btn btn-ghost" href="#features" data-magnetic>See how it works</a>
       </div>
       <div class="hero-note">
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>14-day free trial</span>
@@ -70,8 +75,17 @@
       </div>
     </div>
 
-    <!-- Dashboard mockup -->
-    <div class="app-frame reveal" role="region" aria-label="OneOps dashboard preview">
+    <!-- Dashboard mockup: 3D stage that flattens on scroll (fx.js [data-hero-stage]) -->
+    <div class="hero-stage" data-hero-stage>
+      <div class="hero-stage-glow" aria-hidden="true"></div>
+      <div class="hero-chips" aria-hidden="true">
+        <div class="hero-chip c1" data-parallax="-0.12" data-parallax-min="900"><span class="hc-in"><span class="fi warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span><span><b>Expiry alert sent</b><small>Gemini 1.5 Pro · Slack + email</small></span></span></div>
+        <div class="hero-chip c2" data-parallax="-0.2" data-parallax-min="900"><span class="hc-in"><span class="fi red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><span><b>Hard cap enforced</b><small>Marketing · Claude · 100%</small></span></span></div>
+        <div class="hero-chip c3" data-parallax="-0.08" data-parallax-min="900"><span class="hc-in"><span class="fi ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><span><b>4 PII entities redacted</b><small>Before reaching GPT-4o</small></span></span></div>
+        <div class="hero-chip c4" data-parallax="-0.16" data-parallax-min="900"><span class="hc-in"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M17 8l5 5M22 8l-5 5"/></svg></span><span><b>Access revoked in 30s</b><small>No key rotation required</small></span></span></div>
+      </div>
+      <div class="hero-tilt">
+    <div class="app-frame reveal scale" role="region" aria-label="OneOps dashboard preview">
       <div class="app-top">
         <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
         <div class="app-url">app.oneops.pro/dashboard</div>
@@ -201,6 +215,8 @@
         </div>
       </div>
     </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -209,7 +225,7 @@
   <div class="container">
     <p>Works with every major AI provider — and trusted by teams at Acme Corp, Nexus AI, Meridian and Vortex Labs</p>
   </div>
-  <div class="marquee">
+  <div class="marquee" data-marquee data-pause-offscreen>
     <div class="marquee-track">
       <span class="marquee-item"><i aria-hidden="true">OA</i>OpenAI</span>
       <span class="marquee-item"><i aria-hidden="true">AN</i>Anthropic</span>
@@ -233,41 +249,69 @@
       <span class="marquee-item" aria-hidden="true"><i>DS</i>DeepSeek</span>
     </div>
   </div>
+  <div class="marquee marquee-rev" data-marquee data-pause-offscreen aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-word">Key vault</span><span class="marquee-word serif">Spend attribution</span><span class="marquee-word">Budget hard caps</span><span class="marquee-word serif">Team model access</span><span class="marquee-word">PII &amp; DLP guardrails</span><span class="marquee-word serif">Knowledge base</span><span class="marquee-word">SSO / SCIM</span><span class="marquee-word serif">Sophia AI</span>
+      <span class="marquee-word">Key vault</span><span class="marquee-word serif">Spend attribution</span><span class="marquee-word">Budget hard caps</span><span class="marquee-word serif">Team model access</span><span class="marquee-word">PII &amp; DLP guardrails</span><span class="marquee-word serif">Knowledge base</span><span class="marquee-word">SSO / SCIM</span><span class="marquee-word serif">Sophia AI</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CINEMATIC SEQUENCE (fx.js [data-seq]) ================= -->
+<section class="seq" id="vision" data-seq="assets/seq/" data-seq-count="60" data-seq-zoom="1.14" aria-labelledby="seq-title">
+  <div class="seq-sticky">
+    <canvas class="seq-canvas" aria-hidden="true"></canvas>
+    <div class="seq-shade" aria-hidden="true"></div>
+    <div class="seq-copy container">
+      <span class="eyebrow">One control plane</span>
+      <h2 id="seq-title" class="seq-title">
+        <span class="seq-line">Every key.</span>
+        <span class="seq-line">Every team.</span>
+        <span class="seq-line">Every dollar.</span>
+        <span class="seq-line seq-final">One <span class="serif grad-text">control plane.</span></span>
+      </h2>
+    </div>
+    <div class="seq-hud container" aria-hidden="true">
+      <div class="seq-ticks"><span>01 Keys</span><span>02 Teams</span><span>03 Spend</span><span>04 Control</span></div>
+      <div class="seq-progress"><i></i></div>
+    </div>
+  </div>
 </section>
 
 <!-- ================= STATS ================= -->
 <section class="stats-band" aria-label="OneOps at a glance">
   <div class="container">
-    <div class="stats-grid reveal">
-      <div><div class="n"><span data-count="40">40</span><em>+</em></div><div class="l">AI providers supported</div></div>
-      <div><div class="n"><span data-count="20">20</span><em>+</em></div><div class="l">PII types detected</div></div>
-      <div><div class="n"><span data-count="30">30</span><em>s</em></div><div class="l">to offboard a user</div></div>
-      <div><div class="n"><span data-count="99.9" data-decimals="1">99.9</span><em>%</em></div><div class="l">uptime SLA</div></div>
+    <div class="stats-grid reveal blur">
+      <div><div class="n mega"><span data-count="40">40</span><em>+</em></div><div class="l">AI providers supported</div></div>
+      <div><div class="n mega"><span data-count="20">20</span><em>+</em></div><div class="l">PII types detected</div></div>
+      <div><div class="n mega"><span data-count="30">30</span><em>s</em></div><div class="l">to offboard a user</div></div>
+      <div><div class="n mega"><span data-count="99.9" data-decimals="1">99.9</span><em>%</em></div><div class="l">uptime SLA</div></div>
     </div>
   </div>
 </section>
 
 <!-- ================= PROBLEM ================= -->
-<section class="section dark" id="problem" aria-labelledby="problem-title">
+<section class="section dark" id="problem" aria-labelledby="problem-title" data-pause-offscreen>
+  <div class="problem-aurora" aria-hidden="true"></div>
   <div class="container">
-    <div class="section-head reveal">
+    <div class="section-head problem-head">
       <span class="eyebrow">The problem</span>
-      <h2 id="problem-title">Your teams are using 12 AI tools. You have no idea who authorized half of them.</h2>
+      <h2 id="problem-title" class="problem-statement" data-highlight>Your teams are using 12 AI tools. You have no idea who authorized half of them.</h2>
     </div>
     <div class="problem-grid">
-      <article class="problem-card reveal">
+      <article class="problem-card reveal" data-spotlight>
         <span class="num">01</span>
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></svg></div>
         <h3>Keys scattered everywhere</h3>
         <p>API keys living in Slack threads, Notion pages, and engineers' .env files. No rotation schedule, no audit trail, no visibility into who has what.</p>
       </article>
-      <article class="problem-card reveal d1">
+      <article class="problem-card reveal d1" data-spotlight>
         <span class="num">02</span>
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9.5 13.5c0-.8.9-1.5 2.5-1.5s2.5.7 2.5 1.5"/></svg></div>
         <h3>Spend is a complete mystery</h3>
         <p>You get a $14,000 invoice from Anthropic at month-end and spend two days piecing together which team burned it – with no person-level breakdown anywhere.</p>
       </article>
-      <article class="problem-card reveal d2">
+      <article class="problem-card reveal d2" data-spotlight>
         <span class="num">03</span>
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9.5 9.5l5 5M14.5 9.5l-5 5"/></svg></div>
         <h3>Zero access governance</h3>
@@ -281,13 +325,15 @@
 <!-- ================= SOLUTION / FEATURES ================= -->
 <section class="section" id="features" aria-labelledby="features-title">
   <div class="container">
-    <div class="section-head reveal">
+    <div class="section-head reveal blur">
       <span class="eyebrow">The solution</span>
-      <h2 id="features-title">Everything your AI operations team needs in one dashboard.</h2>
+      <h2 id="features-title" data-split>Everything your AI operations team needs in one dashboard.</h2>
     </div>
 
+    <div class="story" data-story>
+    <div class="story-steps">
     <!-- 01 Key vault -->
-    <div class="feature">
+    <div class="feature" data-step="0">
       <div class="feature-copy reveal">
         <span class="tagline"><b>01</b>API KEY VAULT</span>
         <h3>One vault for every AI key you own</h3>
@@ -320,7 +366,7 @@
     </div>
 
     <!-- 02 Spend attribution -->
-    <div class="feature reverse">
+    <div class="feature reverse" data-step="1">
       <div class="feature-copy reveal">
         <span class="tagline"><b>02</b>SPEND ATTRIBUTION &amp; BUDGET HARD CAPS</span>
         <h3>Know exactly what AI costs – and who.</h3>
@@ -353,7 +399,7 @@
     </div>
 
     <!-- 03 Team model assignment -->
-    <div class="feature">
+    <div class="feature" data-step="2">
       <div class="feature-copy reveal">
         <span class="tagline"><b>03</b>TEAM MODEL ASSIGNMENT</span>
         <h3>Give each team the right model.</h3>
@@ -390,7 +436,7 @@
     </div>
 
     <!-- 04 DLP -->
-    <div class="feature reverse">
+    <div class="feature reverse" data-step="3">
       <div class="feature-copy reveal">
         <span class="tagline"><b>04</b>REAL-TIME PII &amp; DLP GUARDRAILS</span>
         <h3>Stop sensitive data from leaving your org.</h3>
@@ -425,7 +471,7 @@
     </div>
 
     <!-- 05 Knowledge base -->
-    <div class="feature">
+    <div class="feature" data-step="4">
       <div class="feature-copy reveal">
         <span class="tagline"><b>05</b>CONTEXT &amp; TEAM KNOWLEDGE BASE</span>
         <h3>Your team's context, auto-injected. Zero waste.</h3>
@@ -449,6 +495,22 @@
         </div>
       </div>
     </div>
+    </div>
+    <div class="story-stage">
+      <div class="story-hud" aria-hidden="true">
+        <div class="story-count"><b>01</b><span>/ 05</span></div>
+        <div class="story-label">API KEY VAULT</div>
+      </div>
+      <div class="story-rail" aria-hidden="true"><i></i></div>
+      <div class="story-slots">
+        <div class="story-slot" data-slot="0"></div>
+        <div class="story-slot" data-slot="1"></div>
+        <div class="story-slot" data-slot="2"></div>
+        <div class="story-slot" data-slot="3"></div>
+        <div class="story-slot" data-slot="4"></div>
+      </div>
+    </div>
+    </div>
   </div>
 </section>
 
@@ -457,11 +519,11 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Beyond governance</span>
-      <h2 id="beyond-title">Powerful capabilities built for your teams — create, collaborate, discover insights, and work smarter.</h2>
+      <h2 id="beyond-title" data-split>Powerful capabilities built for your teams — create, collaborate, discover insights, and work smarter.</h2>
       <p>OneOps goes beyond managing AI tools, giving teams more ways to get real work done.</p>
     </div>
-    <div class="bento">
-      <article class="bento-card wide feature-dark reveal">
+    <div class="bento" data-pause-offscreen>
+      <article class="bento-card wide feature-dark reveal" data-spotlight>
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
         <h3>Sophia AI</h3>
         <p>Go beyond dashboards and discover what is happening across your AI ecosystem. Administrators can interact with Sophia AI to understand team and user token consumption, spending patterns, prompts being used, and overall AI usage across the organization. Sophia also sends budget alerts when a member exceeds their allocated limit, and instant notifications when AI providers release new updates, features, or changes.</p>
@@ -472,19 +534,19 @@
         </div>
         <div class="pills"><span class="chip">Budget alerts</span><span class="chip">Provider update notifications</span></div>
       </article>
-      <article class="bento-card narrow reveal d1">
+      <article class="bento-card narrow reveal d1" data-spotlight>
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></div>
         <h3>Feedback System</h3>
         <p>Capture monthly feedback from users on a recurring basis to understand their experience with OneOps, identify friction points, and surface issues that need attention. Feedback creates a continuous loop between users, administrators, and the OneOps team.</p>
         <div class="pills"><span class="chip">Recurring monthly cycles</span><span class="chip">Friction point detection</span><span class="chip">Closed feedback loop</span></div>
       </article>
-      <article class="bento-card narrow reveal">
+      <article class="bento-card narrow reveal" data-spotlight>
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h7M9 11h5"/></svg></div>
         <h3>Prompt Library</h3>
         <p>Keep valuable conversations and prompts accessible instead of recreating them every time. Prompt Library automatically retains previous prompts and conversations, allowing users to save, revisit, and retrieve useful prompts whenever they need them.</p>
         <div class="pills"><span class="chip">Auto-retained history</span><span class="chip">Save and revisit</span><span class="chip">Team-wide reuse</span></div>
       </article>
-      <article class="bento-card wide reveal d1">
+      <article class="bento-card wide reveal d1" data-spotlight>
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="15" height="14" rx="2"/><path d="M17 10l5-3v10l-5-3z"/></svg></div>
         <h3>Motion Studio</h3>
         <p>Bring AI-powered creativity directly into your OneOps experience with integrated Motion Studio capabilities. Users can create and edit videos using intuitive manual tools or prompt-driven workflows, making it easier to turn ideas into engaging visual content.</p>
@@ -499,11 +561,20 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Setup in minutes</span>
-      <h2 id="how-title">Connect. Assign. Control.</h2>
+      <h2 id="how-title" data-split>Connect. Assign. <span class="serif">Control.</span></h2>
       <p>Three steps to full visibility over every AI tool in your company.</p>
     </div>
+    <div class="steps-wrap" data-draw>
+      <svg class="steps-path" viewBox="0 0 1200 80" aria-hidden="true" focusable="false">
+        <defs><linearGradient id="steps-grad" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#E5483A"/><stop offset=".5" stop-color="#F2A193"/><stop offset="1" stop-color="#A3829A"/></linearGradient></defs>
+        <path class="steps-path-bg" d="M200 40 C 330 -6, 470 86, 600 40 S 870 -6, 1000 40"/>
+        <path class="steps-path-fg" data-draw-path pathLength="1" d="M200 40 C 330 -6, 470 86, 600 40 S 870 -6, 1000 40"/>
+        <circle class="steps-node" data-draw-step="0" cx="200" cy="40" r="7"/>
+        <circle class="steps-node" data-draw-step="0.5" cx="600" cy="40" r="7"/>
+        <circle class="steps-node" data-draw-step="1" cx="1000" cy="40" r="7"/>
+      </svg>
     <div class="steps">
-      <div class="step reveal">
+      <div class="step reveal" data-draw-step="0" data-spotlight>
         <span class="n"><b>1</b>CONNECT</span>
         <h3>Connect your providers</h3>
         <p>Paste in your API keys for any AI provider – Claude, OpenAI, Gemini, Bedrock, Mistral, Groq, and more. OneOps vaults them with AES-256 encryption immediately.</p>
@@ -511,16 +582,17 @@
           <span class="p-anth" aria-hidden="true">AN</span><span class="p-oai" aria-hidden="true">OA</span><span class="p-goog" aria-hidden="true">G</span><span class="p-aws" aria-hidden="true">AW</span><span class="p-az" aria-hidden="true">AZ</span><span class="p-mis" aria-hidden="true">M</span><span class="p-groq" aria-hidden="true">GQ</span>
         </div>
       </div>
-      <div class="step reveal d1">
+      <div class="step reveal d1" data-draw-step="0.5" data-spotlight>
         <span class="n"><b>2</b>ASSIGN</span>
         <h3>Create teams, assign models</h3>
         <p>Set up your teams and choose which AI models each one can access. Define monthly budgets per team or per person. Sync with Okta or Azure AD via SCIM.</p>
       </div>
-      <div class="step reveal d2">
+      <div class="step reveal d2" data-draw-step="1" data-spotlight>
         <span class="n"><b>3</b>CONTROL</span>
         <h3>Track, alert, optimize</h3>
         <p>Watch spend in real time. Get alerts before limits are hit. Rotate keys on schedule. Pull reports for finance. One dashboard for all of it – forever.</p>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -530,10 +602,10 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Compare</span>
-      <h2 id="compare-title">Built for operations teams, not just developers.</h2>
+      <h2 id="compare-title" data-split>Built for operations teams, not just developers.</h2>
       <p>LiteLLM and Portkey are great for routing API calls. OneOps is the AI gateway built above them—providing AI governance, spend oversight, policy management, and LLM observability for enterprise teams.</p>
     </div>
-    <div class="compare-wrap reveal">
+    <div class="compare-wrap reveal scale">
       <table class="compare">
         <caption class="sr-only">Capability comparison of LiteLLM, Portkey and OneOps</caption>
         <thead>
@@ -633,20 +705,20 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">What teams say</span>
-      <h2 id="customers-title">Trusted by AI teams at fast-moving companies.</h2>
+      <h2 id="customers-title" data-split>Trusted by AI teams at fast-moving companies.</h2>
     </div>
-    <div class="quotes">
-      <figure class="quote reveal" style="margin:0">
+    <div class="quotes reveal blur">
+      <figure class="quote" style="margin:0" data-tilt data-spotlight>
         <div class="stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
         <blockquote>“Finally one place to see that Marketing is burning through Gemini credits and Dev has 3 expired Bedrock keys. We caught a $4,000 overage before it happened.”</blockquote>
         <figcaption class="by"><span class="av" style="background:var(--mauve)" aria-hidden="true">MK</span><div><b>Morgan K.</b><span>CTO, Series B SaaS Company</span></div></figcaption>
       </figure>
-      <figure class="quote highlight reveal d1" style="margin:0">
+      <figure class="quote highlight" style="margin:0" data-tilt data-spotlight>
         <div class="stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
         <blockquote>“When a developer left, we revoked their AI access in 30 seconds from a single screen. Before OneOps that would have been a 2-hour audit across five different provider dashboards.”</blockquote>
         <figcaption class="by"><span class="av" style="background:var(--charcoal)" aria-hidden="true">SR</span><div><b>Sarah R.</b><span>Head of IT Security, 300-person fintech</span></div></figcaption>
       </figure>
-      <figure class="quote reveal d2" style="margin:0">
+      <figure class="quote" style="margin:0" data-tilt data-spotlight>
         <div class="stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
         <blockquote>“Finance asked me which departments were driving our AI costs. I pulled a full breakdown by team, model, and person in 2 minutes. That used to be a week-long spreadsheet exercise.”</blockquote>
         <figcaption class="by"><span class="av" style="background:var(--salmon)" aria-hidden="true">TL</span><div><b>Tom L.</b><span>VP Operations, 500-person enterprise</span></div></figcaption>
@@ -660,9 +732,9 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">AI spend calculator</span>
-      <h2 id="roi-title">See what OneOps could save you</h2>
+      <h2 id="roi-title" data-split>See what OneOps could save you</h2>
     </div>
-    <div class="roi reveal" id="roi">
+    <div class="roi reveal scale" id="roi" data-spotlight>
       <div class="roi-in">
         <h3>Estimate your savings</h3>
         <p>Adjust the inputs to match your organisation.</p>
@@ -705,11 +777,11 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Pricing</span>
-      <h2 id="pricing-title">Simple pricing that scales with your team.</h2>
+      <h2 id="pricing-title" data-split>Simple pricing that scales with your team.</h2>
       <p>All plans include a 14-day free trial. No credit card required.</p>
     </div>
     <div class="pricing">
-      <article class="plan reveal">
+      <article class="plan reveal" data-spotlight>
         <h3>Starter</h3>
         <p class="desc">For small teams getting started with AI governance.</p>
         <div class="price"><b>$49</b><span>/ month</span></div>
@@ -722,7 +794,8 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Email alerts</li>
         </ul>
       </article>
-      <article class="plan popular reveal d1">
+      <article class="plan popular reveal d1" data-spotlight>
+        <span class="plan-glow" aria-hidden="true"></span>
         <span class="badge-pop">Most popular</span>
         <h3>Growth</h3>
         <p class="desc">For growing companies managing AI across multiple departments.</p>
@@ -738,7 +811,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>SSO (Google, Microsoft)</li>
         </ul>
       </article>
-      <article class="plan reveal d2">
+      <article class="plan reveal d2" data-spotlight>
         <h3>Enterprise</h3>
         <p class="desc">For large organizations with complex compliance needs.</p>
         <div class="price"><b>Custom</b></div>
@@ -762,26 +835,26 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Enterprise-grade security</span>
-      <h2 id="security-title">Compliance and security built in.</h2>
+      <h2 id="security-title" data-split>Compliance and security built in.</h2>
     </div>
     <ul class="trust">
-      <li class="trust-item reveal">
+      <li class="trust-item reveal" data-spotlight>
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
         <div><b>SOC 2</b><span>Type II certified</span></div>
       </li>
-      <li class="trust-item reveal d1">
+      <li class="trust-item reveal d1" data-spotlight>
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
         <div><b>GDPR</b><span>Data privacy compliant</span></div>
       </li>
-      <li class="trust-item reveal d2">
+      <li class="trust-item reveal d2" data-spotlight>
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/><path d="M3.5 12h5l1.5-3 3 6 1.5-3h6"/></svg></span>
         <div><b>HIPAA</b><span>Ready guardrails</span></div>
       </li>
-      <li class="trust-item reveal d3">
+      <li class="trust-item reveal d3" data-spotlight>
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
         <div><b>Encrypted</b><span>AES-256 · TLS 1.3</span></div>
       </li>
-      <li class="trust-item reveal d3">
+      <li class="trust-item reveal d3" data-spotlight>
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
         <div><b>99.9% uptime</b><span>High-availability SLA</span></div>
       </li>
@@ -793,13 +866,13 @@
 <section class="section" id="faq" aria-labelledby="faq-title">
   <div class="container">
     <div class="faq-wrap">
-      <div class="faq-side reveal">
+      <div class="faq-side reveal left">
         <span class="eyebrow">FAQ</span>
-        <h2 id="faq-title">Frequently asked questions</h2>
+        <h2 id="faq-title" data-split>Frequently asked questions</h2>
         <p>Everything you need to know about governing AI across your organization with OneOps.</p>
         <button class="btn btn-primary" data-open-demo>Book a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
       </div>
-      <div class="faq-list reveal d1">
+      <div class="faq-list reveal right d1">
         <div class="faq-item open">
           <button class="faq-q" aria-expanded="true" aria-controls="faq-a1" id="faq-q1">What is OneOps?<span class="pm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
           <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1"><div><div class="inner">
@@ -862,15 +935,18 @@
 </section>
 
 <!-- ================= FINAL CTA ================= -->
-<section class="cta">
+<section class="cta" aria-labelledby="cta-title" data-pause-offscreen>
   <div class="container">
-    <div class="cta-box reveal">
+    <div class="cta-box reveal scale">
+      <div class="cta-aurora" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+      <div class="cta-grid" aria-hidden="true"></div>
+      <div class="cta-mega mega" aria-hidden="true" data-parallax="0.06">Take control</div>
       <svg class="cta-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 L90 27 L90 60 L50 60 Z" fill="#D5857A"/><path d="M50 4 L10 27 L10 60 L50 60 Z" fill="#C33A2E"/><path d="M10 60 L50 60 L90 60 L90 73 L50 96 L10 73 Z" fill="#7A5C6E"/><path d="M10 60 L50 82 L90 60" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="1.5"/></svg>
-      <h2>Stop managing AI access in Slack.</h2>
+      <h2 id="cta-title" data-split>Stop managing AI access <span class="serif">in Slack.</span></h2>
       <p>OneOps gives your enterprise the visibility, control, and AI governance layer that your AI stack has been missing – from day one and manage LLM API keys easily.</p>
       <div class="hero-ctas">
-        <button class="btn btn-primary" data-open-demo>Book a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
-        <button class="btn btn-outline-light" data-open-demo>Start free trial — no card needed</button>
+        <button class="btn btn-primary" data-open-demo data-magnetic>Book a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+        <button class="btn btn-outline-light" data-open-demo data-magnetic>Start free trial — no card needed</button>
       </div>
     </div>
   </div>
