@@ -20,9 +20,9 @@
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light dark;
 
-  /* Surfaces */
+  /* Surfaces (Default Dark — "Ember Night") */
   --bg: #0B0809;
   --bg-2: #110C0E;
   --bg-3: #171114;
@@ -83,6 +83,114 @@
   --shadow-lg: inset 0 1px 0 rgba(255, 255, 255, .07), 0 2px 4px rgba(0, 0, 0, .4), 0 50px 100px -30px rgba(0, 0, 0, .9), 0 30px 80px -40px rgba(229, 72, 58, .25);
   --glow-red: 0 0 0 1px rgba(229, 72, 58, .35), 0 12px 40px -10px rgba(229, 72, 58, .55);
   --nav-h: 64px;
+
+  /* Reflect meta override in CSS */
+  &:has(> head > meta[name="color-scheme"][content="dark"]) {
+    color-scheme: dark;
+  }
+  &:has(> head > meta[name="color-scheme"][content="light"]) {
+    color-scheme: light;
+  }
+}
+
+/* =========================================================
+   Light Theme Tokens ("Ember Dawn")
+   ========================================================= */
+:root[data-theme="light"],
+:root:has(> head > meta[name="color-scheme"][content="light"]) {
+  color-scheme: light;
+
+  /* Surfaces */
+  --bg: #FDFBFC;
+  --bg-2: #F4EFF1;
+  --bg-3: #ECE4E7;
+  --surface: rgba(255, 255, 255, .88);
+  --surface-solid: #FFFFFF;
+  --surface-2: rgba(26, 15, 18, .04);
+
+  /* Ink */
+  --ink: #160D11;
+  --ink-2: #382B31;
+  --muted: #6B5B63;
+  --muted-2: #96868E;
+  --line: rgba(26, 15, 18, .08);
+  --line-2: rgba(26, 15, 18, .14);
+
+  /* Brand */
+  --red: #D9382B;
+  --red-600: #B9281D;
+  --red-700: #821A12;
+  --salmon: #C74838;
+  --mauve: #7C5370;
+  --charcoal: #EFE8EC;
+  --blush: rgba(217, 56, 43, .10);
+  --blush-2: rgba(217, 56, 43, .05);
+
+  /* Status */
+  --ok: #158055;
+  --ok-bg: rgba(21, 128, 85, .10);
+  --warn: #A15C00;
+  --warn-bg: rgba(217, 137, 10, .12);
+
+  --grad-brand: linear-gradient(100deg, #D9382B 0%, #C74838 50%, #7C5370 100%);
+
+  /* Derived */
+  --card-bg: linear-gradient(180deg, #FFFFFF 0%, #FAF8F9 100%);
+  --card-border: linear-gradient(160deg, rgba(255, 255, 255, .95) 0%, rgba(26, 15, 18, .09) 35%, rgba(26, 15, 18, .04) 70%, rgba(217, 56, 43, .14) 100%);
+  --card-border-hot: linear-gradient(160deg, rgba(217, 56, 43, .45) 0%, rgba(199, 72, 56, .25) 35%, rgba(26, 15, 18, .06) 65%, rgba(124, 83, 112, .3) 100%);
+  --shadow-sm: 0 1px 3px rgba(26, 15, 18, .06);
+  --shadow: inset 0 1px 0 #FFFFFF, 0 1px 3px rgba(26, 15, 18, .05), 0 20px 44px -22px rgba(26, 15, 18, .12);
+  --shadow-lg: inset 0 1px 0 #FFFFFF, 0 2px 6px rgba(26, 15, 18, .04), 0 32px 70px -24px rgba(26, 15, 18, .14), 0 16px 40px -16px rgba(217, 56, 43, .12);
+  --glow-red: 0 0 0 1px rgba(217, 56, 43, .25), 0 10px 30px -8px rgba(217, 56, 43, .35);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]):not(:has(> head > meta[name="color-scheme"][content="dark"])) {
+    color-scheme: light;
+
+    /* Surfaces */
+    --bg: #FDFBFC;
+    --bg-2: #F4EFF1;
+    --bg-3: #ECE4E7;
+    --surface: rgba(255, 255, 255, .88);
+    --surface-solid: #FFFFFF;
+    --surface-2: rgba(26, 15, 18, .04);
+
+    /* Ink */
+    --ink: #160D11;
+    --ink-2: #382B31;
+    --muted: #6B5B63;
+    --muted-2: #96868E;
+    --line: rgba(26, 15, 18, .08);
+    --line-2: rgba(26, 15, 18, .14);
+
+    /* Brand */
+    --red: #D9382B;
+    --red-600: #B9281D;
+    --red-700: #821A12;
+    --salmon: #C74838;
+    --mauve: #7C5370;
+    --charcoal: #EFE8EC;
+    --blush: rgba(217, 56, 43, .10);
+    --blush-2: rgba(217, 56, 43, .05);
+
+    /* Status */
+    --ok: #158055;
+    --ok-bg: rgba(21, 128, 85, .10);
+    --warn: #A15C00;
+    --warn-bg: rgba(217, 137, 10, .12);
+
+    --grad-brand: linear-gradient(100deg, #D9382B 0%, #C74838 50%, #7C5370 100%);
+
+    /* Derived */
+    --card-bg: linear-gradient(180deg, #FFFFFF 0%, #FAF8F9 100%);
+    --card-border: linear-gradient(160deg, rgba(255, 255, 255, .95) 0%, rgba(26, 15, 18, .09) 35%, rgba(26, 15, 18, .04) 70%, rgba(217, 56, 43, .14) 100%);
+    --card-border-hot: linear-gradient(160deg, rgba(217, 56, 43, .45) 0%, rgba(199, 72, 56, .25) 35%, rgba(26, 15, 18, .06) 65%, rgba(124, 83, 112, .3) 100%);
+    --shadow-sm: 0 1px 3px rgba(26, 15, 18, .06);
+    --shadow: inset 0 1px 0 #FFFFFF, 0 1px 3px rgba(26, 15, 18, .05), 0 20px 44px -22px rgba(26, 15, 18, .12);
+    --shadow-lg: inset 0 1px 0 #FFFFFF, 0 2px 6px rgba(26, 15, 18, .04), 0 32px 70px -24px rgba(26, 15, 18, .14), 0 16px 40px -16px rgba(217, 56, 43, .12);
+    --glow-red: 0 0 0 1px rgba(217, 56, 43, .25), 0 10px 30px -8px rgba(217, 56, 43, .35);
+  }
 }
 
 /* =========================================================
@@ -368,6 +476,83 @@ ul { margin: 0; padding: 0; list-style: none; }
 .nav.open .nav-toggle span { background: transparent; }
 .nav.open .nav-toggle span::before { transform: translateY(6px) rotate(45deg); }
 .nav.open .nav-toggle span::after { transform: translateY(-6px) rotate(-45deg); }
+
+/* Theme toggle */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid var(--line-2);
+  color: var(--ink-2);
+  cursor: pointer;
+  padding: 0;
+  flex: none;
+  transition: background .25s, border-color .25s, color .25s, transform .3s var(--ease-out-expo), box-shadow .25s;
+}
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .28);
+  color: var(--ink);
+  transform: scale(1.05);
+}
+.theme-toggle:active {
+  transform: scale(0.96);
+}
+.theme-toggle svg {
+  width: 17px;
+  height: 17px;
+  transition: transform .4s var(--ease-out-expo), opacity .25s;
+}
+.theme-toggle:hover svg {
+  transform: rotate(20deg);
+}
+.theme-toggle .theme-toggle-sun { display: inline-flex; align-items: center; justify-content: center; }
+.theme-toggle .theme-toggle-moon { display: none; }
+.theme-toggle-text { display: none; }
+
+:root[data-theme="light"] .theme-toggle,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .theme-toggle {
+  background: rgba(26, 15, 18, .04);
+  border-color: var(--line-2);
+  color: var(--ink-2);
+}
+:root[data-theme="light"] .theme-toggle:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .theme-toggle:hover {
+  background: rgba(26, 15, 18, .08);
+  border-color: rgba(26, 15, 18, .22);
+  color: var(--ink);
+}
+:root[data-theme="light"] .theme-toggle .theme-toggle-sun,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .theme-toggle .theme-toggle-sun {
+  display: none;
+}
+:root[data-theme="light"] .theme-toggle .theme-toggle-moon,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .theme-toggle .theme-toggle-moon {
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]):not(:has(> head > meta[name="color-scheme"][content="dark"])) .theme-toggle {
+    background: rgba(26, 15, 18, .04);
+    border-color: var(--line-2);
+    color: var(--ink-2);
+  }
+  :root:not([data-theme="dark"]):not(:has(> head > meta[name="color-scheme"][content="dark"])) .theme-toggle:hover {
+    background: rgba(26, 15, 18, .08);
+    border-color: rgba(26, 15, 18, .22);
+    color: var(--ink);
+  }
+  :root:not([data-theme="dark"]):not(:has(> head > meta[name="color-scheme"][content="dark"])) .theme-toggle .theme-toggle-sun {
+    display: none;
+  }
+  :root:not([data-theme="dark"]):not(:has(> head > meta[name="color-scheme"][content="dark"])) .theme-toggle .theme-toggle-moon {
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+}
 
 /* =========================================================
    Hero (generic) + pill
@@ -1282,4 +1467,574 @@ input[type="range"]:focus-visible { outline: 2px solid var(--salmon); outline-of
   .stats-grid > div { border-left: 0 !important; }
   .stats-grid > div + div { border-top: 1px solid var(--line); }
   .hero-ctas .btn { width: 100%; }
+}
+
+/* =========================================================
+   Light Theme Components & Overrides ("Ember Dawn")
+   ========================================================= */
+
+/* Body & film grain */
+:root[data-theme="light"] body,
+:root:has(> head > meta[name="color-scheme"][content="light"]) body {
+  background:
+    radial-gradient(1100px 620px at 50% -260px, rgba(217, 56, 43, .07), transparent 70%) no-repeat,
+    var(--bg);
+}
+:root[data-theme="light"] body::after,
+:root:has(> head > meta[name="color-scheme"][content="light"]) body::after {
+  opacity: .018;
+  mix-blend-mode: multiply;
+}
+
+/* Scrollbars */
+:root[data-theme="light"] *,
+:root:has(> head > meta[name="color-scheme"][content="light"]) * {
+  scrollbar-color: rgba(26, 15, 18, .18) transparent;
+}
+:root[data-theme="light"] ::-webkit-scrollbar-thumb,
+:root:has(> head > meta[name="color-scheme"][content="light"]) ::-webkit-scrollbar-thumb {
+  background: rgba(26, 15, 18, .15);
+}
+:root[data-theme="light"] ::-webkit-scrollbar-thumb:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) ::-webkit-scrollbar-thumb:hover {
+  background: rgba(26, 15, 18, .28);
+}
+
+/* Hairlines, Grids & Auroras */
+:root[data-theme="light"] .hairline,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .hairline {
+  background: linear-gradient(90deg, transparent, rgba(217, 56, 43, .25), rgba(26, 15, 18, .1), transparent);
+}
+:root[data-theme="light"] .aurora-glow,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .aurora-glow {
+  background:
+    radial-gradient(600px 360px at 20% 10%, rgba(217, 56, 43, .10), transparent 70%),
+    radial-gradient(520px 340px at 85% 30%, rgba(124, 83, 112, .08), transparent 70%),
+    radial-gradient(500px 300px at 50% 100%, rgba(217, 56, 43, .05), transparent 70%);
+}
+:root[data-theme="light"] .hero-grid,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .hero-grid {
+  background-image: linear-gradient(rgba(26, 15, 18, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(26, 15, 18, .06) 1px, transparent 1px);
+  opacity: .85;
+}
+:root[data-theme="light"] .hero-bg,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .hero-bg {
+  background:
+    radial-gradient(900px 480px at 50% -80px, rgba(217, 56, 43, .12), transparent 70%),
+    radial-gradient(640px 420px at 92% 25%, rgba(124, 83, 112, .09), transparent 70%),
+    radial-gradient(560px 380px at 4% 45%, rgba(217, 56, 43, .05), transparent 70%);
+}
+:root[data-theme="light"] .cursor-glow,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .cursor-glow {
+  opacity: .07;
+  mix-blend-mode: multiply;
+  background: radial-gradient(closest-side, rgba(217, 56, 43, .7), rgba(199, 72, 56, .35) 45%, transparent 100%);
+}
+:root[data-theme="light"] [data-spotlight]::before,
+:root:has(> head > meta[name="color-scheme"][content="light"]) [data-spotlight]::before {
+  background: radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), rgba(217, 56, 43, .07), transparent 60%);
+}
+:root[data-theme="light"] [data-spotlight]::after,
+:root:has(> head > meta[name="color-scheme"][content="light"]) [data-spotlight]::after {
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(217, 56, 43, .65), rgba(199, 72, 56, .25) 40%, transparent 70%);
+}
+
+/* Nav & Floating Header */
+:root[data-theme="light"] .nav-inner,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .nav-inner {
+  background: rgba(255, 255, 255, .82);
+  border-color: var(--line-2);
+  box-shadow: inset 0 1px 0 #fff, 0 14px 34px -14px rgba(26, 15, 18, .10);
+}
+:root[data-theme="light"] .nav.scrolled .nav-inner,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .nav.scrolled .nav-inner {
+  background: rgba(255, 255, 255, .94);
+  border-color: var(--line-2);
+  box-shadow: inset 0 1px 0 #fff, 0 20px 44px -14px rgba(26, 15, 18, .12), 0 0 0 1px rgba(26, 15, 18, .04);
+}
+:root[data-theme="light"] .nav-links a:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .nav-links a:hover {
+  color: var(--ink);
+  background: rgba(26, 15, 18, .04);
+}
+:root[data-theme="light"] .nav-links a.active,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .nav-links a.active {
+  color: var(--ink);
+  background: rgba(26, 15, 18, .07);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8);
+}
+:root[data-theme="light"] .nav-toggle,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .nav-toggle {
+  background: rgba(26, 15, 18, .04);
+  border-color: var(--line);
+}
+:root[data-theme="light"] .nav.open .nav-inner,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .nav.open .nav-inner {
+  background:
+    radial-gradient(600px 400px at 100% 0%, rgba(217, 56, 43, .10), transparent 70%),
+    radial-gradient(500px 360px at 0% 100%, rgba(124, 83, 112, .08), transparent 70%),
+    rgba(253, 251, 252, .96);
+}
+
+/* Buttons & Badges */
+:root[data-theme="light"] .btn-ghost,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .btn-ghost {
+  background: rgba(255, 255, 255, .75);
+  border-color: var(--line-2);
+  color: var(--ink);
+  box-shadow: inset 0 1px 0 #fff, 0 1px 3px rgba(26, 15, 18, .04);
+}
+:root[data-theme="light"] .btn-ghost:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .btn-ghost:hover {
+  background: #FFFFFF;
+  border-color: rgba(26, 15, 18, .24);
+  box-shadow: inset 0 1px 0 #fff, 0 4px 14px rgba(26, 15, 18, .08);
+}
+:root[data-theme="light"] .btn-dark,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .btn-dark {
+  background: #180F13;
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(24, 15, 19, .2);
+}
+:root[data-theme="light"] .btn-dark:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .btn-dark:hover {
+  background: #000000;
+  color: #FFFFFF;
+}
+:root[data-theme="light"] .btn-light,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .btn-light {
+  background: #FFFFFF;
+  color: var(--ink);
+  border: 1px solid var(--line-2);
+  box-shadow: 0 4px 14px rgba(26, 15, 18, .08);
+}
+:root[data-theme="light"] .btn-light:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .btn-light:hover {
+  background: #F8F5F6;
+}
+:root[data-theme="light"] .pill,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .pill {
+  background: rgba(255, 255, 255, .82);
+  border-color: var(--line-2);
+  box-shadow: inset 0 1px 0 #fff, 0 6px 20px -8px rgba(217, 56, 43, .2);
+}
+:root[data-theme="light"] .marquee-item i,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .marquee-item i {
+  background: rgba(26, 15, 18, .03);
+  border-color: var(--line);
+}
+
+/* App Mockup */
+:root[data-theme="light"] .app-frame,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .app-frame {
+  background: linear-gradient(180deg, #FFFFFF, #FAF8F9);
+  border-color: var(--line-2);
+  box-shadow: inset 0 1px 0 #FFFFFF, 0 30px 80px -24px rgba(26, 15, 18, .16), 0 0 0 1px rgba(26, 15, 18, .05);
+}
+:root[data-theme="light"] .app-frame::before,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .app-frame::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, .8), transparent 22%);
+  box-shadow: inset 0 1px 0 #FFFFFF;
+}
+:root[data-theme="light"] .app-top,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .app-top {
+  background: rgba(26, 15, 18, .02);
+  border-bottom-color: var(--line);
+}
+:root[data-theme="light"] .dots i,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .dots i {
+  background: rgba(26, 15, 18, .14);
+}
+:root[data-theme="light"] .app-url,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .app-url {
+  background: rgba(26, 15, 18, .04);
+  border-color: var(--line);
+  color: var(--muted);
+}
+:root[data-theme="light"] .app-side,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .app-side {
+  background: rgba(26, 15, 18, .015);
+  border-right-color: var(--line);
+}
+:root[data-theme="light"] .app-tab:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .app-tab:hover {
+  background: rgba(26, 15, 18, .04);
+  color: var(--ink);
+}
+:root[data-theme="light"] .app-tab.active,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .app-tab.active {
+  background: rgba(217, 56, 43, .08);
+  color: var(--red);
+  box-shadow: inset 0 0 0 1px rgba(217, 56, 43, .18);
+}
+:root[data-theme="light"] .app-side .side-foot,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .app-side .side-foot {
+  background: rgba(26, 15, 18, .03);
+  border-color: var(--line);
+  color: var(--muted);
+}
+:root[data-theme="light"] .stat,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .stat {
+  background: #FFFFFF;
+  border-color: var(--line);
+  box-shadow: inset 0 1px 0 #FFFFFF, 0 1px 3px rgba(26, 15, 18, .05);
+}
+:root[data-theme="light"] .meter,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .meter {
+  background: rgba(26, 15, 18, .06);
+  box-shadow: inset 0 1px 2px rgba(26, 15, 18, .08);
+}
+:root[data-theme="light"] .panel,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .panel {
+  background: #FFFFFF;
+  border-color: var(--line);
+  box-shadow: inset 0 1px 0 #FFFFFF, 0 1px 3px rgba(26, 15, 18, .05);
+}
+:root[data-theme="light"] .bars .bar:nth-child(4) i,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .bars .bar:nth-child(4) i {
+  background: linear-gradient(180deg, #C2B4BA, #9E8C94);
+}
+:root[data-theme="light"] .table tbody tr:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .table tbody tr:hover {
+  background: rgba(26, 15, 18, .025);
+}
+:root[data-theme="light"] .team-card,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .team-card {
+  background: #FFFFFF;
+  border-color: var(--line);
+}
+:root[data-theme="light"] .team-card .models span,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .team-card .models span {
+  background: rgba(26, 15, 18, .03);
+  color: var(--ink-2);
+}
+:root[data-theme="light"] .hbars .track,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .hbars .track {
+  background: rgba(26, 15, 18, .06);
+  box-shadow: inset 0 1px 2px rgba(26, 15, 18, .08);
+}
+:root[data-theme="light"] .alert-box,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .alert-box {
+  background: var(--warn-bg);
+  border-color: rgba(161, 92, 0, .2);
+  color: #6E3F00;
+}
+:root[data-theme="light"] .hc-in,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .hc-in {
+  background: rgba(255, 255, 255, .92);
+  border-color: var(--line-2);
+  box-shadow: 0 16px 36px -12px rgba(26, 15, 18, .12), inset 0 1px 0 #FFFFFF;
+}
+:root[data-theme="light"] .hc-in .fi,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .hc-in .fi {
+  background: rgba(26, 15, 18, .05);
+}
+:root[data-theme="light"] .floating,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .floating {
+  background: rgba(255, 255, 255, .92);
+  border-color: var(--line-2);
+  box-shadow: inset 0 1px 0 #FFFFFF, 0 16px 36px -12px rgba(26, 15, 18, .12);
+}
+
+/* Sections, Problem, Bento, DLP */
+:root[data-theme="light"] .section.dark,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .section.dark {
+  background:
+    radial-gradient(900px 480px at 50% 0%, rgba(217, 56, 43, .07), transparent 70%),
+    radial-gradient(700px 420px at 100% 100%, rgba(124, 83, 112, .06), transparent 70%),
+    var(--bg-2);
+  color: var(--ink-2);
+}
+:root[data-theme="light"] .section.dark::before,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .section.dark::before {
+  background: linear-gradient(90deg, transparent, rgba(217, 56, 43, .3) 50%, transparent);
+  box-shadow: 0 0 16px rgba(217, 56, 43, .15);
+}
+:root[data-theme="light"] .problem-card:hover,
+:root[data-theme="light"] .bento-card:hover,
+:root[data-theme="light"] .step:hover,
+:root[data-theme="light"] .quote:hover,
+:root[data-theme="light"] .plan:hover,
+:root[data-theme="light"] .trust-item:hover,
+:root[data-theme="light"] .post-card:hover,
+:root[data-theme="light"] .featured-post:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .problem-card:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .bento-card:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .step:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .quote:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .plan:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .trust-item:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .post-card:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .featured-post:hover {
+  box-shadow: inset 0 1px 0 #FFFFFF, 0 2px 4px rgba(26, 15, 18, .04), 0 24px 48px -18px rgba(26, 15, 18, .14), 0 12px 30px -12px rgba(217, 56, 43, .16);
+}
+:root[data-theme="light"] .bento-card.feature-dark,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .bento-card.feature-dark {
+  background:
+    radial-gradient(520px 320px at 100% 0%, rgba(217, 56, 43, .08), transparent 65%) padding-box,
+    radial-gradient(400px 260px at 0% 100%, rgba(124, 83, 112, .06), transparent 65%) padding-box,
+    linear-gradient(160deg, #FFFFFF, #FAF8F9) padding-box,
+    var(--card-border) border-box;
+}
+:root[data-theme="light"] .chat .msg.a,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .chat .msg.a {
+  background: rgba(26, 15, 18, .04);
+  border-color: var(--line);
+}
+:root[data-theme="light"] .dlp .prompt,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .dlp .prompt {
+  background: #FFFFFF;
+  border-color: var(--line);
+  box-shadow: inset 0 1px 2px rgba(26, 15, 18, .04);
+}
+:root[data-theme="light"] .dlp .log div,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .dlp .log div {
+  background: #FFFFFF;
+  border-color: var(--line);
+}
+:root[data-theme="light"] .kb-docs li,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .kb-docs li {
+  background: #FFFFFF;
+  border-color: var(--line);
+}
+:root[data-theme="light"] .saving,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .saving {
+  background: radial-gradient(300px 120px at 100% 0%, rgba(217, 56, 43, .16), transparent 70%), linear-gradient(120deg, #24161B, #140C0F);
+  color: #fff;
+}
+
+/* Comparison, ROI, Popular Plan */
+:root[data-theme="light"] .compare thead th,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .compare thead th {
+  background: #F4EFF1;
+  color: var(--ink);
+}
+:root[data-theme="light"] .compare tbody tr:hover td,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .compare tbody tr:hover td {
+  background: rgba(26, 15, 18, .02);
+}
+:root[data-theme="light"] .compare .us,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .compare .us {
+  background: rgba(217, 56, 43, .05) !important;
+}
+:root[data-theme="light"] .compare tbody tr:hover td.us,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .compare tbody tr:hover td.us {
+  background: rgba(217, 56, 43, .09) !important;
+}
+:root[data-theme="light"] .seg,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .seg {
+  background: rgba(26, 15, 18, .04);
+  border-color: var(--line);
+}
+:root[data-theme="light"] .seg button.active,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .seg button.active {
+  background: #FFFFFF;
+  color: var(--ink);
+  box-shadow: 0 2px 6px rgba(26, 15, 18, .08);
+}
+:root[data-theme="light"] .plan.popular,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .plan.popular {
+  background:
+    radial-gradient(420px 260px at 50% 0%, rgba(217, 56, 43, .08), transparent 70%) padding-box,
+    linear-gradient(180deg, #FFFFFF, #FAF8F9) padding-box,
+    conic-gradient(from var(--angle), rgba(26, 15, 18, .08) 0deg, rgba(26, 15, 18, .08) 190deg, var(--red) 250deg, var(--salmon) 290deg, var(--mauve) 325deg, rgba(26, 15, 18, .08) 360deg) border-box;
+  color: var(--ink-2);
+  box-shadow: inset 0 1px 0 #FFFFFF, 0 30px 60px -20px rgba(217, 56, 43, .25);
+}
+:root[data-theme="light"] .plan.popular:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .plan.popular:hover {
+  box-shadow: inset 0 1px 0 #FFFFFF, 0 40px 80px -20px rgba(217, 56, 43, .35);
+}
+:root[data-theme="light"] .plan.popular h3,
+:root[data-theme="light"] .plan.popular .price b,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .plan.popular h3,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .plan.popular .price b {
+  color: var(--ink);
+}
+:root[data-theme="light"] .plan.popular .desc,
+:root[data-theme="light"] .plan.popular .price span,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .plan.popular .desc,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .plan.popular .price span {
+  color: var(--muted);
+}
+:root[data-theme="light"] .plan.popular ul,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .plan.popular ul {
+  border-color: var(--line);
+}
+:root[data-theme="light"] .plan.popular li,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .plan.popular li {
+  color: var(--ink-2);
+}
+
+/* Footer & Modal */
+:root[data-theme="light"] .footer,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .footer {
+  background: linear-gradient(180deg, var(--bg), #F2ECEE);
+}
+:root[data-theme="light"] .footer::before,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .footer::before {
+  background: linear-gradient(90deg, transparent, rgba(217, 56, 43, .3), transparent);
+}
+:root[data-theme="light"] .footer::after,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .footer::after {
+  background: radial-gradient(closest-side, rgba(217, 56, 43, .08), transparent);
+}
+:root[data-theme="light"] .newsletter form,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .newsletter form {
+  background: #FFFFFF;
+  border-color: var(--line-2);
+}
+:root[data-theme="light"] .badges span,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .badges span {
+  background: rgba(26, 15, 18, .03);
+}
+:root[data-theme="light"] .footer-word,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .footer-word {
+  -webkit-text-stroke: 1px rgba(217, 56, 43, .22);
+  background-image: linear-gradient(180deg, var(--red) 0%, rgba(217, 56, 43, .35) 50%, rgba(124, 83, 112, .08) 95%);
+}
+:root[data-theme="light"] .footer-word b,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .footer-word b {
+  -webkit-text-stroke: 1px rgba(217, 56, 43, .45);
+}
+:root[data-theme="light"] .modal-backdrop,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .modal-backdrop {
+  background: rgba(26, 15, 18, .55);
+}
+:root[data-theme="light"] .modal-dialog,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .modal-dialog {
+  background: #FFFFFF;
+  border-color: var(--line-2);
+  box-shadow: inset 0 1px 0 #FFFFFF, 0 40px 100px -20px rgba(26, 15, 18, .25);
+}
+:root[data-theme="light"] .modal-close,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .modal-close {
+  background: rgba(26, 15, 18, .05);
+  border-color: var(--line);
+  color: var(--ink);
+}
+:root[data-theme="light"] .modal-close:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .modal-close:hover {
+  background: rgba(26, 15, 18, .1);
+}
+:root[data-theme="light"] .field input,
+:root[data-theme="light"] .field select,
+:root[data-theme="light"] .field textarea,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .field input,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .field select,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .field textarea {
+  background: #FAF8F9;
+  border-color: var(--line-2);
+  color: var(--ink);
+  box-shadow: inset 0 1px 2px rgba(26, 15, 18, .04);
+}
+:root[data-theme="light"] .field input:hover,
+:root[data-theme="light"] .field select:hover,
+:root[data-theme="light"] .field textarea:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .field input:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .field select:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .field textarea:hover {
+  border-color: rgba(26, 15, 18, .28);
+}
+:root[data-theme="light"] .field input:focus,
+:root[data-theme="light"] .field select:focus,
+:root[data-theme="light"] .field textarea:focus,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .field input:focus,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .field select:focus,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .field textarea:focus {
+  background: #FFFFFF;
+  border-color: var(--red);
+}
+
+/* Sub-pages: Features & Blog */
+:root[data-theme="light"] .tab-btn:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .tab-btn:hover {
+  background: rgba(26, 15, 18, .03);
+}
+:root[data-theme="light"] .tab-btn.active,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .tab-btn.active {
+  background: #FFFFFF;
+  box-shadow: var(--shadow);
+}
+:root[data-theme="light"] .tab-panel,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .tab-panel {
+  background: #FFFFFF;
+}
+:root[data-theme="light"] .dims button,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .dims button {
+  background: rgba(26, 15, 18, .03);
+}
+:root[data-theme="light"] .dims button:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .dims button:hover {
+  border-color: rgba(26, 15, 18, .25);
+}
+:root[data-theme="light"] .dims button.active,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .dims button.active {
+  background: var(--ink);
+  color: #FFFFFF;
+}
+:root[data-theme="light"] .lever,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .lever {
+  background: #FAF8F9;
+  border-color: var(--line);
+}
+:root[data-theme="light"] .lever:hover,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .lever:hover {
+  background: rgba(217, 56, 43, .04);
+}
+:root[data-theme="light"] .budget-alert,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .budget-alert {
+  background: #FAF8F9;
+  border-color: var(--line);
+}
+:root[data-theme="light"] .search input,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .search input {
+  background: #FFFFFF;
+  border-color: var(--line-2);
+  color: var(--ink);
+}
+:root[data-theme="light"] .featured-post,
+:root[data-theme="light"] .post-card,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .featured-post,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .post-card {
+  background: #FFFFFF;
+  border-color: var(--line);
+}
+:root[data-theme="light"] .prose code,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .prose code {
+  background: rgba(26, 15, 18, .05);
+  border-color: var(--line);
+  color: var(--ink);
+}
+:root[data-theme="light"] .prose blockquote,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .prose blockquote {
+  background: linear-gradient(90deg, rgba(217, 56, 43, .08), rgba(26, 15, 18, .02));
+  color: var(--ink);
+  box-shadow: -8px 0 24px -12px rgba(217, 56, 43, .3);
+}
+:root[data-theme="light"] .author .av,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .author .av {
+  background: rgba(26, 15, 18, .05);
+}
+:root[data-theme="light"] .featured-post .img::after,
+:root:has(> head > meta[name="color-scheme"][content="light"]) .featured-post .img::after {
+  background: linear-gradient(90deg, transparent 60%, rgba(255, 255, 255, .8));
+}
+
+@media (max-width: 960px) {
+  .nav.open .nav-cta .theme-toggle {
+    width: 100%;
+    height: 48px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .nav.open .nav-cta .theme-toggle-text {
+    display: inline;
+  }
 }

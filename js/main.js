@@ -501,4 +501,103 @@
       } else fallback(url);
     });
   });
+
+  /* ---------- Theme toggle (Ember Night / Ember Dawn) ---------- */
+  function initTheme() {
+    var metaScheme = $('meta[name="color-scheme"]');
+    var metaThemeColor = $('meta[name="theme-color"]');
+    var toggles = $$('[data-theme-toggle]');
+
+    function getSystemTheme() {
+      return (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+    }
+
+    function getStoredTheme() {
+      try {
+        return localStorage.getItem('color-scheme') || localStorage.getItem('theme');
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function applyTheme(target, isExplicit) {
+      var system = getSystemTheme();
+
+      if (isExplicit) {
+        if (target === system) {
+          try {
+            localStorage.removeItem('color-scheme');
+            localStorage.removeItem('theme');
+          } catch (e) {}
+          if (metaScheme) metaScheme.content = 'light dark';
+          if (system === 'light') {
+            doc.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            doc.documentElement.removeAttribute('data-theme');
+          }
+        } else {
+          try {
+            localStorage.setItem('color-scheme', target);
+            localStorage.setItem('theme', target);
+          } catch (e) {}
+          if (metaScheme) metaScheme.content = target;
+          doc.documentElement.setAttribute('data-theme', target);
+        }
+      } else {
+        var stored = getStoredTheme();
+        if (stored === 'light' || stored === 'dark') {
+          doc.documentElement.setAttribute('data-theme', stored);
+          if (metaScheme) metaScheme.content = stored;
+        } else {
+          if (metaScheme) metaScheme.content = 'light dark';
+          if (system === 'light') {
+            doc.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            doc.documentElement.removeAttribute('data-theme');
+          }
+        }
+      }
+
+      var active = doc.documentElement.getAttribute('data-theme') || system;
+      if (metaThemeColor) {
+        metaThemeColor.content = active === 'light' ? '#FDFBFC' : '#0B0809';
+      }
+
+      toggles.forEach(function (btn) {
+        var nextTheme = active === 'light' ? 'dark' : 'light';
+        btn.setAttribute('aria-label', 'Switch to ' + nextTheme + ' theme');
+        btn.setAttribute('title', 'Switch to ' + nextTheme + ' theme');
+        var label = $('.theme-toggle-text', btn);
+        if (label) label.textContent = 'Switch to ' + nextTheme + ' theme';
+      });
+    }
+
+    toggles.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var current = doc.documentElement.getAttribute('data-theme') || getSystemTheme();
+        var target = current === 'dark' ? 'light' : 'dark';
+        applyTheme(target, true);
+      });
+    });
+
+    if (window.matchMedia) {
+      var mql = window.matchMedia('(prefers-color-scheme: dark)');
+      var handler = function () {
+        if (!getStoredTheme()) {
+          applyTheme(null, false);
+        }
+      };
+      if (mql.addEventListener) mql.addEventListener('change', handler);
+      else if (mql.addListener) mql.addListener(handler);
+    }
+
+    window.addEventListener('storage', function (e) {
+      if (e.key === 'color-scheme' || e.key === 'theme') {
+        applyTheme(null, false);
+      }
+    });
+
+    applyTheme(null, false);
+  }
+  initTheme();
 })();
