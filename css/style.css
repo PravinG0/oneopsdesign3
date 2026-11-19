@@ -144,55 +144,6 @@
   --glow-red: 0 0 0 1px rgba(217, 56, 43, .25), 0 10px 30px -8px rgba(217, 56, 43, .35);
 }
 
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]):not(:has(> head > meta[name="color-scheme"][content="dark"])) {
-    color-scheme: light;
-
-    /* Surfaces */
-    --bg: #FDFBFC;
-    --bg-2: #F4EFF1;
-    --bg-3: #ECE4E7;
-    --surface: rgba(255, 255, 255, .88);
-    --surface-solid: #FFFFFF;
-    --surface-2: rgba(26, 15, 18, .04);
-
-    /* Ink */
-    --ink: #160D11;
-    --ink-2: #382B31;
-    --muted: #6B5B63;
-    --muted-2: #96868E;
-    --line: rgba(26, 15, 18, .08);
-    --line-2: rgba(26, 15, 18, .14);
-
-    /* Brand */
-    --red: #D9382B;
-    --red-600: #B9281D;
-    --red-700: #821A12;
-    --salmon: #C74838;
-    --mauve: #7C5370;
-    --charcoal: #EFE8EC;
-    --blush: rgba(217, 56, 43, .10);
-    --blush-2: rgba(217, 56, 43, .05);
-
-    /* Status */
-    --ok: #158055;
-    --ok-bg: rgba(21, 128, 85, .10);
-    --warn: #A15C00;
-    --warn-bg: rgba(217, 137, 10, .12);
-
-    --grad-brand: linear-gradient(100deg, #D9382B 0%, #C74838 50%, #7C5370 100%);
-
-    /* Derived */
-    --card-bg: linear-gradient(180deg, #FFFFFF 0%, #FAF8F9 100%);
-    --card-border: linear-gradient(160deg, rgba(255, 255, 255, .95) 0%, rgba(26, 15, 18, .09) 35%, rgba(26, 15, 18, .04) 70%, rgba(217, 56, 43, .14) 100%);
-    --card-border-hot: linear-gradient(160deg, rgba(217, 56, 43, .45) 0%, rgba(199, 72, 56, .25) 35%, rgba(26, 15, 18, .06) 65%, rgba(124, 83, 112, .3) 100%);
-    --shadow-sm: 0 1px 3px rgba(26, 15, 18, .06);
-    --shadow: inset 0 1px 0 #FFFFFF, 0 1px 3px rgba(26, 15, 18, .05), 0 20px 44px -22px rgba(26, 15, 18, .12);
-    --shadow-lg: inset 0 1px 0 #FFFFFF, 0 2px 6px rgba(26, 15, 18, .04), 0 32px 70px -24px rgba(26, 15, 18, .14), 0 16px 40px -16px rgba(217, 56, 43, .12);
-    --glow-red: 0 0 0 1px rgba(217, 56, 43, .25), 0 10px 30px -8px rgba(217, 56, 43, .35);
-  }
-}
-
 /* =========================================================
    Base
    ========================================================= */
@@ -533,25 +484,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 :root[data-theme="light"] .theme-toggle .theme-toggle-moon,
 :root:has(> head > meta[name="color-scheme"][content="light"]) .theme-toggle .theme-toggle-moon {
   display: inline-flex; align-items: center; justify-content: center;
-}
-
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]):not(:has(> head > meta[name="color-scheme"][content="dark"])) .theme-toggle {
-    background: rgba(26, 15, 18, .04);
-    border-color: var(--line-2);
-    color: var(--ink-2);
-  }
-  :root:not([data-theme="dark"]):not(:has(> head > meta[name="color-scheme"][content="dark"])) .theme-toggle:hover {
-    background: rgba(26, 15, 18, .08);
-    border-color: rgba(26, 15, 18, .22);
-    color: var(--ink);
-  }
-  :root:not([data-theme="dark"]):not(:has(> head > meta[name="color-scheme"][content="dark"])) .theme-toggle .theme-toggle-sun {
-    display: none;
-  }
-  :root:not([data-theme="dark"]):not(:has(> head > meta[name="color-scheme"][content="dark"])) .theme-toggle .theme-toggle-moon {
-    display: inline-flex; align-items: center; justify-content: center;
-  }
 }
 
 /* =========================================================

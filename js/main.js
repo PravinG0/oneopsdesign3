@@ -502,15 +502,11 @@
     });
   });
 
-  /* ---------- Theme toggle (Ember Night / Ember Dawn) ---------- */
+  /* ---------- Theme toggle (Dark by default at starting) ---------- */
   function initTheme() {
     var metaScheme = $('meta[name="color-scheme"]');
     var metaThemeColor = $('meta[name="theme-color"]');
     var toggles = $$('[data-theme-toggle]');
-
-    function getSystemTheme() {
-      return (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
-    }
 
     function getStoredTheme() {
       try {
@@ -520,45 +516,22 @@
       }
     }
 
-    function applyTheme(target, isExplicit) {
-      var system = getSystemTheme();
-
-      if (isExplicit) {
-        if (target === system) {
-          try {
-            localStorage.removeItem('color-scheme');
-            localStorage.removeItem('theme');
-          } catch (e) {}
-          if (metaScheme) metaScheme.content = 'light dark';
-          if (system === 'light') {
-            doc.documentElement.setAttribute('data-theme', 'light');
-          } else {
-            doc.documentElement.removeAttribute('data-theme');
-          }
-        } else {
-          try {
-            localStorage.setItem('color-scheme', target);
-            localStorage.setItem('theme', target);
-          } catch (e) {}
-          if (metaScheme) metaScheme.content = target;
-          doc.documentElement.setAttribute('data-theme', target);
-        }
+    function applyTheme(target) {
+      var active;
+      if (target === 'light' || target === 'dark') {
+        active = target;
+        try {
+          localStorage.setItem('color-scheme', target);
+          localStorage.setItem('theme', target);
+        } catch (e) {}
       } else {
         var stored = getStoredTheme();
-        if (stored === 'light' || stored === 'dark') {
-          doc.documentElement.setAttribute('data-theme', stored);
-          if (metaScheme) metaScheme.content = stored;
-        } else {
-          if (metaScheme) metaScheme.content = 'light dark';
-          if (system === 'light') {
-            doc.documentElement.setAttribute('data-theme', 'light');
-          } else {
-            doc.documentElement.removeAttribute('data-theme');
-          }
-        }
+        // Default is dark at starting if nothing stored
+        active = (stored === 'light' || stored === 'dark') ? stored : 'dark';
       }
 
-      var active = doc.documentElement.getAttribute('data-theme') || system;
+      doc.documentElement.setAttribute('data-theme', active);
+      if (metaScheme) metaScheme.content = active;
       if (metaThemeColor) {
         metaThemeColor.content = active === 'light' ? '#FDFBFC' : '#0B0809';
       }
@@ -574,30 +547,19 @@
 
     toggles.forEach(function (btn) {
       btn.addEventListener('click', function () {
-        var current = doc.documentElement.getAttribute('data-theme') || getSystemTheme();
-        var target = current === 'dark' ? 'light' : 'dark';
-        applyTheme(target, true);
+        var current = doc.documentElement.getAttribute('data-theme') || 'dark';
+        var next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
       });
     });
 
-    if (window.matchMedia) {
-      var mql = window.matchMedia('(prefers-color-scheme: dark)');
-      var handler = function () {
-        if (!getStoredTheme()) {
-          applyTheme(null, false);
-        }
-      };
-      if (mql.addEventListener) mql.addEventListener('change', handler);
-      else if (mql.addListener) mql.addListener(handler);
-    }
-
     window.addEventListener('storage', function (e) {
       if (e.key === 'color-scheme' || e.key === 'theme') {
-        applyTheme(null, false);
+        applyTheme();
       }
     });
 
-    applyTheme(null, false);
+    applyTheme();
   }
   initTheme();
 })();
